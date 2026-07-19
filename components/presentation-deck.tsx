@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import type { WheelEvent } from "react"
 import {
   useEffect,
   useEffectEvent,
@@ -28,6 +29,7 @@ import styles from "./presentation-deck.module.css"
 
 const CONTROL_HIDE_MS = 2200
 const SLIDE_SWIPE_DISTANCE = 48
+const WHEEL_NAVIGATION_THRESHOLD = 72
 const SHARED_MORPH_DURATION_MS = 720
 const SHARED_REVEAL_DELAY_MS = 660
 const SHARED_TRANSITION_TOTAL_MS = 1380
@@ -40,6 +42,7 @@ const CHALLENGE_REVEAL_SLIDE_ID = "biggest-challenge-content"
 const MAX_CHALLENGE_REVEAL_STEP = 3
 const ADVICE_REVEAL_SLIDE_ID = "advice-to-future-intern"
 const MAX_ADVICE_REVEAL_STEP = 1
+const NAVIGATION_STORAGE_KEY = "final-presentation-navigation"
 
 type SharedElementKind = "shape" | "panel"
 
@@ -60,6 +63,14 @@ type SharedMorphTransition = {
   targetKind: SharedElementKind | null
   targetRect: SharedMorphRect | null
   toIndex: number
+}
+
+type PersistedNavigationState = {
+  adviceRevealStep?: number
+  challengeRevealStep?: number
+  currentIndex?: number
+  showPhasesInterstitial?: boolean
+  slideId?: string
 }
 
 const BASE_SLIDES = [
@@ -140,7 +151,7 @@ function getSlides(challengeRevealStep: number, adviceRevealStep: number) {
         },
         {
           id: "my-initial-expectation",
-          label: "My Initial Expectation",
+          label: "My Initial Expectations",
           theme: "light" as const,
           render: () => (
             <PresentationInitialExpectationSlide
@@ -305,7 +316,7 @@ function getSlides(challengeRevealStep: number, adviceRevealStep: number) {
         openerSlide,
         {
           id: "biggest-challenge-content",
-          label: "Biggest Challenge & How to Overcome",
+          label: "Biggest Challenge & How I Overcame It",
           theme: "light" as const,
           render: () => (
             <PresentationStorySlide
@@ -322,7 +333,7 @@ function getSlides(challengeRevealStep: number, adviceRevealStep: number) {
                   ],
                 },
                 {
-                  label: "How to Overcome",
+                  label: "How I Overcame It",
                   body: [
                     "I tested things step by step and compared the results properly.",
                     "I started asking questions earlier and improved the workflow each time.",
@@ -330,7 +341,7 @@ function getSlides(challengeRevealStep: number, adviceRevealStep: number) {
                   ],
                 },
               ]}
-              title="Biggest Challenge & How to Overcome"
+              title="Biggest Challenge & How I Overcame It"
               variant="challenge"
             />
           ),
@@ -399,9 +410,9 @@ function getSlides(challengeRevealStep: number, adviceRevealStep: number) {
             <PresentationAdviceSlide
               lead="If I could leave a short message for a future junior intern, it would be to stay curious, stay thoughtful, and keep learning through the process."
               points={[
-                "Ask early. Do not stay stuck too long.",
-                "Do not fully rely on AI. Review and think properly.",
-                "Stay organised, accept feedback, and stay open to new tools.",
+                "Ask questions early and clarify the task before starting.",
+                "Use AI as a support tool, but always review and improve the output.",
+                "Stay organised, document progress, and learn from feedback.",
               ]}
               quote={{
                 label: "Quote",
@@ -452,11 +463,13 @@ function getSlides(challengeRevealStep: number, adviceRevealStep: number) {
 
 export function PresentationDeck() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [hasRestoredNavigation, setHasRestoredNavigation] = useState(false)
   const [showControls, setShowControls] = useState(false)
   const [isResponsiveViewport, setIsResponsiveViewport] = useState(false)
   const [showPhasesInterstitial, setShowPhasesInterstitial] = useState(false)
   const [challengeRevealStep, setChallengeRevealStep] = useState(0)
   const [adviceRevealStep, setAdviceRevealStep] = useState(0)
+  const [isProgressMenuOpen, setIsProgressMenuOpen] = useState(false)
   const [sharedMorphTransition, setSharedMorphTransition] =
     useState<SharedMorphTransition | null>(null)
   const deckRef = useRef<HTMLDivElement | null>(null)
@@ -466,6 +479,7 @@ export function PresentationDeck() {
   const sharedTransitionRevealTimerRef = useRef<number | null>(null)
   const sharedTransitionFinishTimerRef = useRef<number | null>(null)
   const touchStartRef = useRef<{ x: number; y: number } | null>(null)
+  const wheelDeltaRef = useRef(0)
   const slides = useMemo(
     () => getSlides(challengeRevealStep, adviceRevealStep),
     [adviceRevealStep, challengeRevealStep]
@@ -508,6 +522,83 @@ export function PresentationDeck() {
       .filter(Boolean)
       .join(" ")
   }, [showControls, visibleSlide.id, visibleSlide.theme])
+
+  useLayoutEffect(() => {
+    try {
+      const rawNavigation = window.localStorage.getItem(NAVIGATION_STORAGE_KEY)
+
+      if (!rawNavigation) {
+        setHasRestoredNavigation(true)
+        return
+      }
+
+      const savedNavigation = JSON.parse(rawNavigation) as PersistedNavigationState
+      const savedChallengeRevealStep = Math.max(
+        0,
+        Math.min(
+          Number(savedNavigation.challengeRevealStep ?? 0),
+          MAX_CHALLENGE_REVEAL_STEP
+        )
+      )
+      const savedAdviceRevealStep = Math.max(
+        0,
+        Math.min(
+          Number(savedNavigation.adviceRevealStep ?? 0),
+          MAX_ADVICE_REVEAL_STEP
+        )
+      )
+      const savedIndexById = savedNavigation.slideId
+        ? slides.findIndex((slide) => slide.id === savedNavigation.slideId)
+        : -1
+      const savedIndexByNumber =
+        typeof savedNavigation.currentIndex === "number"
+          ? savedNavigation.currentIndex
+          : 0
+      const nextIndex =
+        savedIndexById >= 0
+          ? savedIndexById
+          : Math.max(0, Math.min(savedIndexByNumber, slides.length - 1))
+      const nextSlide = slides[nextIndex]
+
+      setChallengeRevealStep(savedChallengeRevealStep)
+      setAdviceRevealStep(savedAdviceRevealStep)
+      setCurrentIndex(nextIndex)
+      setShowPhasesInterstitial(
+        nextSlide?.id === PHASES_INTERSTITIAL_SLIDE_ID &&
+          Boolean(savedNavigation.showPhasesInterstitial)
+      )
+    } catch {
+      window.localStorage.removeItem(NAVIGATION_STORAGE_KEY)
+    } finally {
+      setHasRestoredNavigation(true)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (!hasRestoredNavigation) {
+      return
+    }
+
+    const navigationState: PersistedNavigationState = {
+      adviceRevealStep,
+      challengeRevealStep,
+      currentIndex,
+      showPhasesInterstitial,
+      slideId: currentSlide.id,
+    }
+
+    window.localStorage.setItem(
+      NAVIGATION_STORAGE_KEY,
+      JSON.stringify(navigationState)
+    )
+  }, [
+    adviceRevealStep,
+    challengeRevealStep,
+    currentIndex,
+    currentSlide.id,
+    hasRestoredNavigation,
+    showPhasesInterstitial,
+  ])
 
   useEffect(() => {
     const syncViewportMode = () => {
@@ -655,6 +746,55 @@ export function PresentationDeck() {
     revealControls()
   })
 
+  useEffect(() => {
+    const goToSectionHash = () => {
+      const hash = window.location.hash.replace("#", "")
+
+      if (!hash.startsWith("section-opener-")) {
+        return
+      }
+
+      const nextIndex = slides.findIndex((slide) => slide.id === hash)
+
+      if (nextIndex < 0) {
+        return
+      }
+
+      goToSlide(nextIndex)
+    }
+
+    const handleSectionNavigation = (event: Event) => {
+      const navigationEvent = event as CustomEvent<{ sectionNumber?: string }>
+      const sectionNumber = navigationEvent.detail?.sectionNumber
+
+      if (!sectionNumber) {
+        return
+      }
+
+      const nextIndex = slides.findIndex(
+        (slide) => slide.id === `section-opener-${sectionNumber}`
+      )
+
+      if (nextIndex < 0) {
+        return
+      }
+
+      goToSlide(nextIndex)
+    }
+
+    goToSectionHash()
+    window.addEventListener("hashchange", goToSectionHash)
+    window.addEventListener("presentation:go-to-section", handleSectionNavigation)
+
+    return () => {
+      window.removeEventListener("hashchange", goToSectionHash)
+      window.removeEventListener(
+        "presentation:go-to-section",
+        handleSectionNavigation
+      )
+    }
+  })
+
   const handleDeckKeyDown = useEffectEvent((event: KeyboardEvent) => {
     if (event.key === "Escape" && showPhasesInterstitial) {
       event.preventDefault()
@@ -674,6 +814,30 @@ export function PresentationDeck() {
       handleKeyboardNavigation(1)
     }
   })
+
+  const handleWheelNavigation = (event: WheelEvent<HTMLDivElement>) => {
+    revealControls()
+
+    if (isResponsiveViewport || sharedMorphTransition) {
+      return
+    }
+
+    if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) {
+      return
+    }
+
+    event.preventDefault()
+
+    wheelDeltaRef.current += event.deltaY
+
+    if (Math.abs(wheelDeltaRef.current) < WHEEL_NAVIGATION_THRESHOLD) {
+      return
+    }
+
+    const direction = wheelDeltaRef.current > 0 ? 1 : -1
+    wheelDeltaRef.current = 0
+    goToSlide(currentIndex + direction)
+  }
 
   useLayoutEffect(() => {
     if (!sharedMorphTransition || sharedMorphTransition.stage !== "mount") {
@@ -858,6 +1022,7 @@ export function PresentationDeck() {
     <div
       className={styles.deck}
       data-presentation-deck-root="true"
+      data-navigation-restored={hasRestoredNavigation ? "true" : "false"}
       onMouseDownCapture={() => {
         deckRef.current?.focus({ preventScroll: true })
       }}
@@ -915,11 +1080,7 @@ export function PresentationDeck() {
 
         touchStartRef.current = { x: touch.clientX, y: touch.clientY }
       }}
-      onWheel={() => {
-        if (isResponsiveViewport) {
-          revealControls()
-        }
-      }}
+      onWheel={handleWheelNavigation}
       ref={deckRef}
       tabIndex={-1}
     >
@@ -1027,9 +1188,21 @@ export function PresentationDeck() {
         <nav
           aria-label="Slide progress"
           className={styles.progressRail}
+          onMouseLeave={() => setIsProgressMenuOpen(false)}
           onMouseEnter={revealControls}
+          onPointerLeave={() => setIsProgressMenuOpen(false)}
         >
-          <div className={styles.progressMenu}>
+          <div
+            className={[
+              styles.progressMenu,
+              isProgressMenuOpen ? styles.progressMenuOpen : "",
+            ]
+              .filter(Boolean)
+              .join(" ")}
+            onFocus={() => setIsProgressMenuOpen(true)}
+            onMouseEnter={() => setIsProgressMenuOpen(true)}
+            onPointerEnter={() => setIsProgressMenuOpen(true)}
+          >
             <p className={styles.progressMenuTitle}>Presentation Flow</p>
 
             <div className={styles.progressMenuList}>
@@ -1069,7 +1242,12 @@ export function PresentationDeck() {
             </div>
           </div>
 
-          <div className={styles.progressTicks} aria-hidden="true">
+          <div
+            className={styles.progressTicks}
+            onFocus={() => setIsProgressMenuOpen(true)}
+            onMouseEnter={() => setIsProgressMenuOpen(true)}
+            onPointerEnter={() => setIsProgressMenuOpen(true)}
+          >
             {slides.map((slide, index) => {
               const isActive = index === currentIndex
               const isCompleted = index < currentIndex

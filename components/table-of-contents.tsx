@@ -40,6 +40,7 @@ export function TableOfContents() {
   const viewportRef = useRef<HTMLDivElement | null>(null)
   const hideTimerRef = useRef<number | null>(null)
   const hoverLockRef = useRef(false)
+  const sectionNavigationLockRef = useRef(false)
   const touchStartRef = useRef<{ x: number; y: number } | null>(null)
 
   useEffect(() => {
@@ -158,7 +159,7 @@ export function TableOfContents() {
       return
     }
 
-    openNav("right", true)
+    openNav("right")
   }
 
   const handleTouchStart = (event: TouchEvent<HTMLDivElement>) => {
@@ -191,13 +192,47 @@ export function TableOfContents() {
     const deltaY = touch.clientY - start.y
 
     if (deltaY <= -SWIPE_TRIGGER_DISTANCE && Math.abs(deltaY) > Math.abs(deltaX)) {
-      openNav("right", true)
+      openNav("right")
       touchStartRef.current = null
     }
   }
 
   const handleTouchEnd = () => {
     touchStartRef.current = null
+  }
+
+  const goToSection = (index: number) => {
+    if (sectionNavigationLockRef.current) {
+      return
+    }
+
+    sectionNavigationLockRef.current = true
+
+    const sectionNumber = String(index + 1).padStart(2, "0")
+    const itemId = `section-opener-${sectionNumber}`
+    const nextHash = `#${itemId}`
+
+    setActiveNavItem(itemId)
+    closeNav()
+
+    if (window.location.hash === nextHash) {
+      window.dispatchEvent(new HashChangeEvent("hashchange"))
+      window.setTimeout(() => {
+        sectionNavigationLockRef.current = false
+      }, 350)
+      return
+    }
+
+    window.location.hash = itemId
+    window.dispatchEvent(
+      new CustomEvent("presentation:go-to-section", {
+        detail: { sectionNumber },
+      })
+    )
+
+    window.setTimeout(() => {
+      sectionNavigationLockRef.current = false
+    }, 350)
   }
 
   const navClasses = [
@@ -322,7 +357,7 @@ export function TableOfContents() {
             if (!isResponsiveViewport) {
               closeNav()
             } else {
-              openNav(navSide ?? "right", true)
+              openNav(navSide ?? "right")
             }
           }}
         >
@@ -341,35 +376,32 @@ export function TableOfContents() {
           <nav aria-label="Presentation sections" className={styles.navBody}>
             <ol className={styles.navList}>
               {SECTION_TITLES.map((item, index) => {
-                const itemId = `toc-${String(index + 1).padStart(2, "0")}`
+                const sectionNumber = String(index + 1).padStart(2, "0")
+                const itemId = `section-opener-${sectionNumber}`
                 const isActive = activeNavItem === itemId
 
                 return (
                   <li className={styles.navItem} key={item}>
-                    <a
+                    <button
+                      aria-current={isActive ? "page" : undefined}
                       className={[
                         styles.navLink,
                         isActive ? styles.navLinkActive : "",
                       ]
                         .filter(Boolean)
                         .join(" ")}
-                      href={`#${itemId}`}
-                      onClick={() => {
-                        setActiveNavItem(itemId)
-
-                        if (isResponsiveViewport) {
-                          openNav(navSide ?? "right", true)
-                          return
-                        }
-
-                        closeNav()
+                      onClick={() => goToSection(index)}
+                      onPointerDown={(event) => {
+                        event.preventDefault()
+                        goToSection(index)
                       }}
+                      type="button"
                     >
                       <span className={styles.navNumber}>
-                        {String(index + 1).padStart(2, "0")}
+                        {sectionNumber}
                       </span>
                       <span className={styles.navLabel}>{item}</span>
-                    </a>
+                    </button>
                   </li>
                 )
               })}

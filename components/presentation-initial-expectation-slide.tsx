@@ -49,7 +49,7 @@ export function PresentationInitialExpectationSlide({
       <div className={styles.viewport} ref={viewportRef}>
         {isResponsiveViewport ? (
           <section
-            aria-label="My Initial Expectation slide"
+            aria-label="My Initial Expectations slide"
             className={styles.responsive}
           >
             <div className={styles.responsiveTopLine} aria-hidden="true" />
@@ -172,7 +172,7 @@ export function PresentationInitialExpectationSlide({
           </section>
         ) : (
           <section
-            aria-label="My Initial Expectation slide"
+            aria-label="My Initial Expectations slide"
             className={styles.desktop}
           >
             <div

@@ -3,6 +3,10 @@
   min-height: 100dvh;
 }
 
+.deck[data-navigation-restored="false"] {
+  visibility: hidden;
+}
+
 .slideStage {
   position: relative;
   min-height: 100dvh;
@@ -149,12 +153,12 @@
   pointer-events: none;
   transform: translateZ(0);
   background:
-    radial-gradient(circle at top right, rgba(238, 32, 40, 0.1), transparent 36%),
+    radial-gradient(circle at top right, rgba(255, 176, 0, 0.1), transparent 36%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.995), rgba(255, 247, 247, 0.98)),
     #ffffff;
   box-shadow:
     0 24px 64px rgba(78, 9, 18, 0.18),
-    0 10px 28px rgba(238, 32, 40, 0.1),
+    0 10px 28px rgba(255, 176, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.92);
   transition:
     left cubic-bezier(0.22, 1, 0.36, 1),
@@ -194,11 +198,13 @@
   align-items: center;
   gap: 12px;
   padding: 10px 12px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 176, 0, 0.18);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(20px) saturate(140%);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+  box-shadow:
+    0 18px 40px rgba(22, 22, 22, 0.1),
+    0 8px 18px rgba(255, 176, 0, 0.08);
   opacity: 0;
   pointer-events: none;
   transform: translate(-50%, 20px);
@@ -222,13 +228,13 @@
 
 
 .controlsDark {
-  border-color: rgba(255, 255, 255, 0.24);
-  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 176, 0, 0.22);
+  background: rgba(255, 255, 255, 0.94);
 }
 
 .controlsLight {
-  border-color: rgba(0, 0, 0, 0.08);
-  background: rgba(255, 255, 255, 0.76);
+  border-color: rgba(255, 176, 0, 0.22);
+  background: rgba(255, 255, 255, 0.94);
 }
 
 .controlButton {
@@ -254,7 +260,7 @@
 
 .controlButton:hover,
 .controlButton:focus-visible {
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 176, 0, 0.12);
   outline: none;
 }
 
@@ -293,11 +299,11 @@
 }
 
 .controlsDark {
-  color: #ffffff;
+  color: #171717;
 }
 
 .controlsLight {
-  color: #000000;
+  color: #171717;
 }
 
 .deck button,
@@ -332,7 +338,7 @@
     #ffffff;
   box-shadow:
     0 34px 80px rgba(0, 0, 0, 0.24),
-    0 16px 36px rgba(238, 32, 40, 0.1);
+    0 16px 36px rgba(255, 176, 0, 0.1);
 }
 
 .slideInterstitialImageWrap {
@@ -343,7 +349,7 @@
   max-height: 74dvh;
   overflow: hidden;
   border-radius: 20px;
-  box-shadow: inset 0 0 0 1px rgba(238, 32, 40, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(255, 176, 0, 0.1);
 }
 
 .slideInterstitialImage {
@@ -358,7 +364,7 @@
   min-width: 88px;
   height: 38px;
   padding: 0 16px;
-  border: 1px solid rgba(238, 32, 40, 0.18);
+  border: 1px solid rgba(255, 176, 0, 0.18);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.88);
   color: #111111;
@@ -372,8 +378,8 @@
 
 .slideInterstitialClose:hover,
 .slideInterstitialClose:focus-visible {
-  background: rgba(238, 32, 40, 0.08);
-  border-color: rgba(238, 32, 40, 0.28);
+  background: rgba(255, 176, 0, 0.08);
+  border-color: rgba(255, 176, 0, 0.28);
   outline: none;
 }
 
@@ -414,19 +420,19 @@
 .progressTick:hover,
 .progressTick:focus-visible {
   width: 34px;
-  background: rgba(238, 32, 40, 0.56);
+  background: rgba(255, 176, 0, 0.56);
   outline: none;
   transform: translateX(-2px);
 }
 
 .progressTickCompleted {
-  background: rgba(238, 32, 40, 0.32);
+  background: rgba(255, 176, 0, 0.32);
 }
 
 .progressTickActive {
   width: 46px;
-  background: #ee2028;
-  box-shadow: 0 0 0 1px rgba(238, 32, 40, 0.18);
+  background: #ffb000;
+  box-shadow: 0 0 0 1px rgba(255, 176, 0, 0.18);
 }
 
 .progressMenu {
@@ -439,7 +445,7 @@
   backdrop-filter: blur(18px) saturate(135%);
   box-shadow:
     0 22px 52px rgba(15, 15, 15, 0.12),
-    0 10px 24px rgba(238, 32, 40, 0.08);
+    0 10px 24px rgba(255, 176, 0, 0.08);
   opacity: 0;
   pointer-events: none;
   transform: translateX(18px) scale(0.96);
@@ -449,7 +455,9 @@
     transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.progressRail:hover .progressMenu,
+.progressMenuOpen,
+.progressRail:has(.progressTicks:hover) .progressMenu,
+.progressRail:has(.progressMenu:hover) .progressMenu,
 .progressRail:focus-within .progressMenu {
   opacity: 1;
   pointer-events: auto;
@@ -546,12 +554,12 @@
 }
 
 .progressMenuLineCompleted {
-  background: rgba(238, 32, 40, 0.36);
+  background: rgba(255, 176, 0, 0.36);
 }
 
 .progressMenuLineActive {
   width: 44px;
-  background: #ee2028;
+  background: #ffb000;
 }
 
 .progressMenuMeta {
@@ -585,17 +593,20 @@
 @media (max-width: 767px) {
   .controls {
     gap: 8px;
+    width: min(286px, calc(100vw - 92px));
     padding: 8px 10px;
+    justify-content: space-between;
   }
 
   .controlButton {
-    min-width: 44px;
-    height: 44px;
+    min-width: 40px;
+    height: 40px;
     font-size: 1.05rem;
   }
 
   .controlMeta {
-    min-width: 88px;
+    min-width: 0;
+    width: min(150px, 42vw);
   }
 
   .controlMeta strong {
@@ -604,6 +615,10 @@
 
   .controlMeta span {
     font-size: 0.62rem;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .slideInterstitial {

@@ -22,7 +22,7 @@
   background:
     radial-gradient(
       circle at top right,
-      rgba(238, 32, 40, 0.08),
+      rgba(255, 176, 0, 0.08),
       transparent 34%
     ),
     #ffffff;
@@ -54,7 +54,7 @@
   width: 280px;
   height: 280px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(238, 32, 40, 0.07), transparent 72%);
+  background: radial-gradient(circle, rgba(255, 176, 0, 0.07), transparent 72%);
   filter: blur(16px);
 }
 
@@ -72,7 +72,7 @@
 }
 
 .brandGhost span {
-  color: rgba(238, 32, 40, 0.026);
+  color: rgba(255, 176, 0, 0.026);
   font-size: 156px;
   font-weight: 700;
   letter-spacing: calc(-0.1em + var(--letter-spacing-boost));
@@ -83,7 +83,7 @@
 .responsiveTopLine {
   width: 100%;
   height: 5px;
-  background: #ee2028;
+  background: #ffb000;
   transform-origin: left center;
   animation: lineReveal 820ms var(--motion-ease) both;
 }
@@ -221,7 +221,7 @@
   width: 5px;
   min-height: 92px;
   border-radius: 999px;
-  background: linear-gradient(180deg, #ee2028, rgba(238, 32, 40, 0.14));
+  background: linear-gradient(180deg, #ffb000, rgba(255, 176, 0, 0.14));
 }
 
 .challengeRevealLead {
@@ -259,9 +259,9 @@
     radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.99), rgba(255, 247, 247, 0.95)),
     linear-gradient(180deg, rgba(255, 255, 255, 0.99), rgba(255, 249, 249, 0.95));
   box-shadow:
-    inset 0 0 0 1px rgba(238, 32, 40, 0.08),
-    inset 0 0 0 24px rgba(238, 32, 40, 0.03),
-    0 28px 56px rgba(238, 32, 40, 0.08);
+    inset 0 0 0 1px rgba(255, 176, 0, 0.08),
+    inset 0 0 0 24px rgba(255, 176, 0, 0.03),
+    0 28px 56px rgba(255, 176, 0, 0.08);
   text-align: center;
   overflow: hidden;
 }
@@ -271,8 +271,8 @@
   display: inline-flex;
   padding: 0.82rem 1.16rem;
   border-radius: 999px;
-  background: rgba(238, 32, 40, 0.08);
-  color: #d71d26;
+  background: rgba(255, 176, 0, 0.08);
+  color: #b87500;
   font-size: 0.92rem;
   font-weight: 700;
   letter-spacing: calc(0.14em + var(--letter-spacing-boost));
@@ -312,9 +312,9 @@
 .challengePieSliceOne {
   background: conic-gradient(
     from -90deg,
-    #bf141d 0deg,
-    #d51c27 70deg,
-    #cb1822 120deg,
+    #c77f00 0deg,
+    #e6a000 70deg,
+    #d59000 120deg,
     transparent 120deg 360deg
   );
   -webkit-mask: conic-gradient(from -90deg, #000 0deg 120deg, transparent 120deg 360deg);
@@ -325,9 +325,9 @@
   background: conic-gradient(
     from -90deg,
     transparent 0deg 120deg,
-    #d51c27 120deg,
-    #ef3945 190deg,
-    #e82c38 240deg,
+    #e6a000 120deg,
+    #ffbd30 190deg,
+    #f5a900 240deg,
     transparent 240deg 360deg
   );
   -webkit-mask: conic-gradient(from -90deg, transparent 0deg 120deg, #000 120deg 240deg, transparent 240deg 360deg);
@@ -338,9 +338,9 @@
   background: conic-gradient(
     from -90deg,
     transparent 0deg 240deg,
-    #ff3b47 240deg,
-    #ff5963 300deg,
-    #ff4a55 360deg
+    #ffc13d 240deg,
+    #ffd56f 300deg,
+    #ffb000 360deg
   );
   -webkit-mask: conic-gradient(from -90deg, transparent 0deg 240deg, #000 240deg 360deg);
   mask: conic-gradient(from -90deg, transparent 0deg 240deg, #000 240deg 360deg);
@@ -472,8 +472,8 @@
   margin: 0;
   padding: 0.8rem 1.2rem;
   border-radius: 999px;
-  background: rgba(238, 32, 40, 0.08);
-  color: #ee2028;
+  background: rgba(255, 176, 0, 0.08);
+  color: #ffb000;
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: calc(0.14em + var(--letter-spacing-boost));
@@ -532,8 +532,8 @@
   border-radius: 30px;
   background: linear-gradient(
     135deg,
-    rgba(238, 32, 40, 0.06),
-    rgba(238, 32, 40, 0)
+    rgba(255, 176, 0, 0.06),
+    rgba(255, 176, 0, 0)
   );
   z-index: -1;
 }
@@ -549,7 +549,7 @@
   width: 7px;
   min-height: 108px;
   border-radius: 999px;
-  background: linear-gradient(180deg, #ee2028, rgba(238, 32, 40, 0.08));
+  background: linear-gradient(180deg, #ffb000, rgba(255, 176, 0, 0.08));
 }
 
 .breakthroughLead,
@@ -653,8 +653,8 @@
     ),
     #ffffff;
   box-shadow:
-    inset 0 0 0 10px rgba(238, 32, 40, 0.04),
-    0 28px 54px rgba(238, 32, 40, 0.05);
+    inset 0 0 0 10px rgba(255, 176, 0, 0.04),
+    0 28px 54px rgba(255, 176, 0, 0.05);
   transform: translateY(-50%);
   z-index: 0;
 }
@@ -669,8 +669,8 @@
   height: 1.5px;
   background: linear-gradient(
     90deg,
-    rgba(238, 32, 40, 0.22),
-    rgba(238, 32, 40, 0.18)
+    rgba(255, 176, 0, 0.22),
+    rgba(255, 176, 0, 0.18)
   );
   transform: translateY(-50%) scaleX(0);
   transform-origin: left center;
@@ -686,10 +686,10 @@
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: rgba(238, 32, 40, 0.2);
+  background: rgba(255, 176, 0, 0.2);
   box-shadow:
-    0 26px 56px rgba(238, 32, 40, 0.09),
-    inset 0 0 0 1px rgba(238, 32, 40, 0.07);
+    0 26px 56px rgba(255, 176, 0, 0.09),
+    inset 0 0 0 1px rgba(255, 176, 0, 0.07);
   z-index: 1;
 }
 
@@ -699,7 +699,7 @@
   position: absolute;
   inset: 24px;
   border-radius: 50%;
-  border: 1px solid rgba(238, 32, 40, 0.08);
+  border: 1px solid rgba(255, 176, 0, 0.08);
 }
 
 .breakthroughCircle::after,
@@ -714,7 +714,7 @@
   width: 126px;
   height: 126px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(238, 32, 40, 0.11), transparent 74%);
+  background: radial-gradient(circle, rgba(255, 176, 0, 0.11), transparent 74%);
   filter: blur(12px);
 }
 
@@ -737,7 +737,7 @@
   padding: 0.64rem 0.92rem;
   border-radius: 999px;
   background: #ffffff;
-  color: #ee2028;
+  color: #ffb000;
   font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: calc(0.14em + var(--letter-spacing-boost));
@@ -799,8 +799,8 @@
   margin: 0;
   padding: 0.8rem 1.12rem;
   border-radius: 999px;
-  background: rgba(238, 32, 40, 0.08);
-  color: #ee2028;
+  background: rgba(255, 176, 0, 0.08);
+  color: #ffb000;
   font-size: 0.92rem;
   font-weight: 700;
   letter-spacing: calc(0.16em + var(--letter-spacing-boost));
@@ -835,10 +835,10 @@
   width: 1.5px;
   background: linear-gradient(
     180deg,
-    rgba(238, 32, 40, 0.16),
-    rgba(238, 32, 40, 0.28) 34%,
-    rgba(238, 32, 40, 0.18) 66%,
-    rgba(238, 32, 40, 0.12)
+    rgba(255, 176, 0, 0.16),
+    rgba(255, 176, 0, 0.28) 34%,
+    rgba(255, 176, 0, 0.18) 66%,
+    rgba(255, 176, 0, 0.12)
   );
   transform: scaleY(0);
   transform-origin: center top;
@@ -857,8 +857,8 @@
   border-radius: 50%;
   background: #ffffff;
   box-shadow:
-    0 0 0 2px rgba(238, 32, 40, 0.14),
-    inset 0 0 0 4px rgba(238, 32, 40, 0.82);
+    0 0 0 2px rgba(255, 176, 0, 0.14),
+    inset 0 0 0 4px rgba(255, 176, 0, 0.82);
   transform: translateY(-50%) scale(0.35);
   opacity: 0;
   animation: breakthroughNodeEnter 320ms var(--motion-ease) 1460ms forwards;
@@ -878,7 +878,7 @@
   margin-left: 0;
   padding: 22px 34px 24px 30px;
   border-radius: 26px;
-  border: 1px solid rgba(238, 32, 40, 0.15);
+  border: 1px solid rgba(255, 176, 0, 0.15);
   background:
     linear-gradient(
       180deg,
@@ -887,7 +887,7 @@
     ),
     #ffffff;
   box-shadow:
-    0 16px 32px rgba(238, 32, 40, 0.06),
+    0 16px 32px rgba(255, 176, 0, 0.06),
     inset 0 1px 0 rgba(255, 255, 255, 0.92);
   opacity: 0;
   transform: translateX(52px) scale(0.96);
@@ -907,8 +907,8 @@
   height: 2px;
   background: linear-gradient(
     90deg,
-    rgba(238, 32, 40, 0.1),
-    rgba(238, 32, 40, 0.24)
+    rgba(255, 176, 0, 0.1),
+    rgba(255, 176, 0, 0.24)
   );
   clip-path: none;
   transform: translateY(-50%) scaleX(0.2);
@@ -970,8 +970,8 @@
 .responsiveBreakthroughReason:nth-child(2)::before {
   background: linear-gradient(
     90deg,
-    rgba(238, 32, 40, 0.07),
-    rgba(238, 32, 40, 0.2)
+    rgba(255, 176, 0, 0.07),
+    rgba(255, 176, 0, 0.2)
   );
 }
 
@@ -979,8 +979,8 @@
 .responsiveBreakthroughReason:nth-child(3)::before {
   background: linear-gradient(
     90deg,
-    rgba(238, 32, 40, 0.08),
-    rgba(238, 32, 40, 0.23)
+    rgba(255, 176, 0, 0.08),
+    rgba(255, 176, 0, 0.23)
   );
 }
 
@@ -988,8 +988,8 @@
 .responsiveBreakthroughReason:nth-child(4)::before {
   background: linear-gradient(
     90deg,
-    rgba(238, 32, 40, 0.08),
-    rgba(238, 32, 40, 0.2)
+    rgba(255, 176, 0, 0.08),
+    rgba(255, 176, 0, 0.2)
   );
 }
 
@@ -1004,8 +1004,8 @@
   border-radius: 50%;
   background: #ffffff;
   box-shadow:
-    0 0 0 3px rgba(238, 32, 40, 0.1),
-    inset 0 0 0 4px #ee2028;
+    0 0 0 3px rgba(255, 176, 0, 0.1),
+    inset 0 0 0 4px #ffb000;
   transform: translateY(-50%) scale(0.4);
   opacity: 0;
   animation: breakthroughNodeEnter 340ms var(--motion-ease)
@@ -1018,7 +1018,7 @@
   position: absolute;
   right: 18px;
   top: 50%;
-  color: rgba(238, 32, 40, 0.045);
+  color: rgba(255, 176, 0, 0.045);
   font-size: 102px;
   font-weight: 700;
   letter-spacing: calc(-0.08em + var(--letter-spacing-boost));
@@ -1042,8 +1042,8 @@
   height: 38px;
   padding: 0 12px;
   border-radius: 999px;
-  background: rgba(238, 32, 40, 0.08);
-  color: #ee2028;
+  background: rgba(255, 176, 0, 0.08);
+  color: #ffb000;
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: calc(-0.05em + var(--letter-spacing-boost));
@@ -1104,7 +1104,7 @@
 
 .challengeSupportEyebrow {
   margin: 0;
-  color: #ee2028;
+  color: #ffb000;
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: calc(0.16em + var(--letter-spacing-boost));
@@ -1132,7 +1132,7 @@
 }
 
 .challengeSupportOutcome span {
-  color: #ee2028;
+  color: #ffb000;
   font-weight: 700;
 }
 
@@ -1143,7 +1143,7 @@
   min-height: 402px;
   padding: 28px 28px 30px;
   border-radius: 28px;
-  border: 1px solid rgba(238, 32, 40, 0.14);
+  border: 1px solid rgba(255, 176, 0, 0.14);
   background:
     linear-gradient(
       180deg,
@@ -1152,7 +1152,7 @@
     ),
     #ffffff;
   box-shadow:
-    0 22px 46px rgba(238, 32, 40, 0.08),
+    0 22px 46px rgba(255, 176, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.92);
   overflow: hidden;
   opacity: 0;
@@ -1183,7 +1183,7 @@
   background:
     radial-gradient(
       circle at 14% 14%,
-      rgba(238, 32, 40, 0.08),
+      rgba(255, 176, 0, 0.08),
       transparent 30%
     ),
     linear-gradient(
@@ -1198,7 +1198,7 @@
   grid-column: 3 / 4;
   grid-row: 1 / 2;
   background:
-    radial-gradient(circle at 86% 14%, rgba(238, 32, 40, 0.1), transparent 30%),
+    radial-gradient(circle at 86% 14%, rgba(255, 176, 0, 0.1), transparent 30%),
     linear-gradient(
       180deg,
       rgba(255, 255, 255, 0.995),
@@ -1222,13 +1222,13 @@
   padding: 0.74rem 1rem;
   border-radius: 999px;
   background: #ffffff;
-  color: #ee2028;
+  color: #ffb000;
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: calc(0.14em + var(--letter-spacing-boost));
   line-height: 1;
   text-transform: uppercase;
-  box-shadow: 0 12px 24px rgba(238, 32, 40, 0.08);
+  box-shadow: 0 12px 24px rgba(255, 176, 0, 0.08);
 }
 
 .challengeNarrativeTag {
@@ -1287,8 +1287,8 @@
   height: 11px;
   margin-top: 0.54em;
   border-radius: 999px;
-  background: linear-gradient(180deg, #ff6267, #ee2028);
-  box-shadow: 0 10px 18px rgba(238, 32, 40, 0.18);
+  background: linear-gradient(180deg, #ffc13d, #ffb000);
+  box-shadow: 0 10px 18px rgba(255, 176, 0, 0.18);
 }
 
 .challengeNarrativeText {
@@ -1311,8 +1311,8 @@
     ),
     rgba(255, 255, 255, 0.72);
   box-shadow:
-    inset 0 0 0 1px rgba(238, 32, 40, 0.06),
-    0 10px 22px rgba(238, 32, 40, 0.05);
+    inset 0 0 0 1px rgba(255, 176, 0, 0.06),
+    0 10px 22px rgba(255, 176, 0, 0.05);
 }
 
 .challengeStepNumber {
@@ -1323,8 +1323,8 @@
   height: 38px;
   padding: 0 12px;
   border-radius: 999px;
-  background: rgba(238, 32, 40, 0.12);
-  color: #ee2028;
+  background: rgba(255, 176, 0, 0.12);
+  color: #ffb000;
   font-size: 0.94rem;
   font-weight: 700;
   letter-spacing: calc(-0.05em + var(--letter-spacing-boost));
@@ -1347,7 +1347,7 @@
   gap: 12px;
   padding: 24px 28px 26px;
   border-radius: 26px;
-  border: 1px solid rgba(238, 32, 40, 0.14);
+  border: 1px solid rgba(255, 176, 0, 0.14);
   background:
     linear-gradient(
       180deg,
@@ -1356,7 +1356,7 @@
     ),
     #ffffff;
   box-shadow:
-    0 20px 38px rgba(238, 32, 40, 0.08),
+    0 20px 38px rgba(255, 176, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.94);
   opacity: 0;
   transform: translateY(24px) scale(0.985);
@@ -1376,8 +1376,8 @@
   width: fit-content;
   padding: 0.72rem 1rem;
   border-radius: 999px;
-  background: rgba(238, 32, 40, 0.08);
-  color: #ee2028;
+  background: rgba(255, 176, 0, 0.08);
+  color: #ffb000;
   font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: calc(0.14em + var(--letter-spacing-boost));
@@ -1390,8 +1390,8 @@
   height: 1px;
   background: linear-gradient(
     90deg,
-    rgba(238, 32, 40, 0.22),
-    rgba(238, 32, 40, 0)
+    rgba(255, 176, 0, 0.22),
+    rgba(255, 176, 0, 0)
   );
 }
 
@@ -1436,7 +1436,7 @@
   width: 360px;
   height: 176px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(238, 32, 40, 0.08), transparent 72%);
+  background: radial-gradient(circle, rgba(255, 176, 0, 0.08), transparent 72%);
   transform: translateX(-50%);
   filter: blur(18px);
   z-index: 0;
@@ -1450,7 +1450,7 @@
   padding: 0.72rem 1rem;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.9);
-  color: #ee2028;
+  color: #ffb000;
   font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: calc(0.14em + var(--letter-spacing-boost));
@@ -1570,12 +1570,12 @@
   top: 266px;
   width: 344px;
   height: 28px;
-  background: linear-gradient(180deg, #ff655c, #eb372e);
+  background: linear-gradient(180deg, #ffd56f, #ffb000);
   clip-path: polygon(4% 0, 100% 0, 96% 100%, 0 100%);
   transform: translateX(-50%);
   box-shadow:
-    0 14px 26px rgba(238, 32, 40, 0.24),
-    inset 0 -7px 0 rgba(180, 24, 29, 0.74);
+    0 14px 26px rgba(255, 176, 0, 0.24),
+    inset 0 -7px 0 rgba(181, 116, 0, 0.42);
   z-index: 2;
 }
 
@@ -1672,8 +1672,8 @@
   top: 18px;
   width: 12px;
   height: 88px;
-  background: linear-gradient(180deg, #ff6d63, #ee2028);
-  box-shadow: 0 10px 22px rgba(238, 32, 40, 0.28);
+  background: linear-gradient(180deg, #ffc13d, #ffb000);
+  box-shadow: 0 10px 22px rgba(255, 176, 0, 0.28);
 }
 
 .sections {
@@ -1688,7 +1688,7 @@
   display: grid;
   gap: 18px;
   padding: 26px 28px;
-  border: 1px solid rgba(238, 32, 40, 0.12);
+  border: 1px solid rgba(255, 176, 0, 0.12);
   border-radius: 28px;
   background:
     linear-gradient(
@@ -1698,7 +1698,7 @@
     ),
     #ffffff;
   box-shadow:
-    0 20px 46px rgba(238, 32, 40, 0.08),
+    0 20px 46px rgba(255, 176, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.92);
   overflow: hidden;
   opacity: 0;
@@ -1735,8 +1735,8 @@
   margin: 0;
   padding: 0.78rem 1.18rem;
   border-radius: 999px;
-  background: rgba(238, 32, 40, 0.1);
-  color: #ee2028;
+  background: rgba(255, 176, 0, 0.1);
+  color: #ffb000;
   font-size: 0.96rem;
   font-weight: 700;
   letter-spacing: calc(0.14em + var(--letter-spacing-boost));
@@ -1755,7 +1755,7 @@
   background:
     radial-gradient(
       circle at top right,
-      rgba(238, 32, 40, 0.12),
+      rgba(255, 176, 0, 0.12),
       transparent 34%
     ),
     linear-gradient(
@@ -1769,10 +1769,10 @@
 .breakthroughCard {
   gap: 24px;
   padding: 34px 34px 32px;
-  border-color: rgba(238, 32, 40, 0.18);
+  border-color: rgba(255, 176, 0, 0.18);
   box-shadow:
-    0 24px 54px rgba(238, 32, 40, 0.12),
-    0 0 0 1px rgba(238, 32, 40, 0.05),
+    0 24px 54px rgba(255, 176, 0, 0.12),
+    0 0 0 1px rgba(255, 176, 0, 0.05),
     inset 0 1px 0 rgba(255, 255, 255, 0.96);
 }
 
@@ -1781,7 +1781,7 @@
   position: absolute;
   right: 26px;
   bottom: 14px;
-  color: rgba(238, 32, 40, 0.06);
+  color: rgba(255, 176, 0, 0.06);
   font-size: 142px;
   font-weight: 700;
   letter-spacing: calc(-0.08em + var(--letter-spacing-boost));
@@ -1810,7 +1810,7 @@
   background:
     radial-gradient(
       circle at top right,
-      rgba(238, 32, 40, 0.09),
+      rgba(255, 176, 0, 0.09),
       transparent 34%
     ),
     linear-gradient(
@@ -1868,8 +1868,8 @@
   width: 12px;
   height: 12px;
   border-radius: 999px;
-  background: linear-gradient(180deg, #ff5258, #ee2028);
-  box-shadow: 0 8px 18px rgba(238, 32, 40, 0.18);
+  background: linear-gradient(180deg, #ffc13d, #ffb000);
+  box-shadow: 0 8px 18px rgba(255, 176, 0, 0.18);
 }
 
 .reasonRow,
@@ -1882,8 +1882,8 @@
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.66);
   box-shadow:
-    inset 0 0 0 1px rgba(238, 32, 40, 0.06),
-    0 8px 20px rgba(238, 32, 40, 0.04);
+    inset 0 0 0 1px rgba(255, 176, 0, 0.06),
+    0 8px 20px rgba(255, 176, 0, 0.04);
 }
 
 .reasonNumber,
@@ -1895,8 +1895,8 @@
   height: 40px;
   padding: 0 12px;
   border-radius: 999px;
-  background: rgba(238, 32, 40, 0.08);
-  color: #ee2028;
+  background: rgba(255, 176, 0, 0.08);
+  color: #ffb000;
   font-size: 1.08rem;
   font-weight: 700;
   letter-spacing: calc(-0.06em + var(--letter-spacing-boost));
@@ -1928,8 +1928,8 @@
   height: 10px;
   margin-top: 0.48em;
   border-radius: 999px;
-  background: linear-gradient(180deg, #ff5258, #ee2028);
-  box-shadow: 0 8px 18px rgba(238, 32, 40, 0.16);
+  background: linear-gradient(180deg, #ffc13d, #ffb000);
+  box-shadow: 0 8px 18px rgba(255, 176, 0, 0.16);
 }
 
 .challengeSupportText,
@@ -1952,8 +1952,8 @@
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.62);
   box-shadow:
-    inset 0 0 0 1px rgba(238, 32, 40, 0.06),
-    0 8px 20px rgba(238, 32, 40, 0.04);
+    inset 0 0 0 1px rgba(255, 176, 0, 0.06),
+    0 8px 20px rgba(255, 176, 0, 0.04);
 }
 
 .solutionNumber,
@@ -1965,8 +1965,8 @@
   height: 38px;
   padding: 0 12px;
   border-radius: 999px;
-  background: rgba(238, 32, 40, 0.08);
-  color: #ee2028;
+  background: rgba(255, 176, 0, 0.08);
+  color: #ffb000;
   font-size: 1.04rem;
   font-weight: 700;
   letter-spacing: calc(-0.06em + var(--letter-spacing-boost));
@@ -2004,8 +2004,8 @@
     radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.98), rgba(255, 245, 245, 0.94)),
     linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 248, 248, 0.96));
   box-shadow:
-    inset 0 0 0 1px rgba(238, 32, 40, 0.1),
-    0 16px 34px rgba(238, 32, 40, 0.08);
+    inset 0 0 0 1px rgba(255, 176, 0, 0.1),
+    0 16px 34px rgba(255, 176, 0, 0.08);
   text-align: center;
 }
 
@@ -2018,8 +2018,8 @@
   height: 38px;
   padding: 0 12px;
   border-radius: 999px;
-  background: rgba(238, 32, 40, 0.1);
-  color: #d81d26;
+  background: rgba(255, 176, 0, 0.1);
+  color: #b87500;
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: calc(-0.05em + var(--letter-spacing-boost));
@@ -2095,7 +2095,7 @@
   background:
     radial-gradient(
       circle at top right,
-      rgba(238, 32, 40, 0.08),
+      rgba(255, 176, 0, 0.08),
       transparent 34%
     ),
     #ffffff;
@@ -2118,7 +2118,7 @@
   width: 220px;
   height: 220px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(238, 32, 40, 0.1), transparent 70%);
+  background: radial-gradient(circle, rgba(255, 176, 0, 0.1), transparent 70%);
   filter: blur(8px);
   pointer-events: none;
 }
@@ -2133,7 +2133,7 @@
 }
 
 .responsiveBrandGhost span {
-  color: rgba(238, 32, 40, 0.02);
+  color: rgba(255, 176, 0, 0.02);
   font-size: clamp(4rem, 16vw, 7.2rem);
   font-weight: 700;
   letter-spacing: calc(-0.1em + var(--letter-spacing-boost));
@@ -2267,8 +2267,8 @@
   width: 10px;
   height: 10px;
   box-shadow:
-    0 0 0 3px rgba(238, 32, 40, 0.08),
-    inset 0 0 0 3px #ee2028;
+    0 0 0 3px rgba(255, 176, 0, 0.08),
+    inset 0 0 0 3px #ffb000;
 }
 
 .responsiveBreakthroughReasonTop {
@@ -2328,7 +2328,7 @@
   background:
     radial-gradient(
       circle at top right,
-      rgba(238, 32, 40, 0.12),
+      rgba(255, 176, 0, 0.12),
       transparent 36%
     ),
     linear-gradient(
@@ -2340,10 +2340,10 @@
 }
 
 .responsiveBreakthroughCard {
-  border-color: rgba(238, 32, 40, 0.18);
+  border-color: rgba(255, 176, 0, 0.18);
   box-shadow:
-    0 22px 48px rgba(238, 32, 40, 0.12),
-    0 0 0 1px rgba(238, 32, 40, 0.05),
+    0 22px 48px rgba(255, 176, 0, 0.12),
+    0 0 0 1px rgba(255, 176, 0, 0.05),
     inset 0 1px 0 rgba(255, 255, 255, 0.96);
 }
 
@@ -2352,7 +2352,7 @@
   position: absolute;
   right: 16px;
   bottom: 10px;
-  color: rgba(238, 32, 40, 0.06);
+  color: rgba(255, 176, 0, 0.06);
   font-size: 86px;
   font-weight: 700;
   letter-spacing: calc(-0.08em + var(--letter-spacing-boost));
@@ -2378,7 +2378,7 @@
   background:
     radial-gradient(
       circle at top right,
-      rgba(238, 32, 40, 0.09),
+      rgba(255, 176, 0, 0.09),
       transparent 34%
     ),
     linear-gradient(
@@ -2756,9 +2756,9 @@
     padding: 64px 54px;
     gap: 12px;
     box-shadow:
-      inset 0 0 0 1px rgba(238, 32, 40, 0.08),
-      inset 0 0 0 14px rgba(238, 32, 40, 0.03),
-      0 18px 34px rgba(238, 32, 40, 0.07);
+      inset 0 0 0 1px rgba(255, 176, 0, 0.08),
+      inset 0 0 0 14px rgba(255, 176, 0, 0.03),
+      0 18px 34px rgba(255, 176, 0, 0.07);
   }
 
   .challengePieLabel {

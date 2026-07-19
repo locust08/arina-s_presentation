@@ -2,7 +2,8 @@
 
 import Image from "next/image"
 import type { CSSProperties } from "react"
-import { useEffect, useRef, useState } from "react"
+import { useLayoutEffect, useRef, useState } from "react"
+import { BriefcaseBusiness, CalendarDays, UserRound } from "lucide-react"
 
 const DESIGN_WIDTH = 1920
 const DESIGN_HEIGHT = 1080
@@ -26,7 +27,7 @@ export function TitleSlide() {
   const [viewportWidth, setViewportWidth] = useState(0)
   const viewportRef = useRef<HTMLDivElement | null>(null)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const updateScale = (width: number, height: number) => {
       setViewportWidth(width)
       setScale(getScale(width, height))
@@ -37,6 +38,9 @@ export function TitleSlide() {
     if (!viewport) {
       return
     }
+
+    const rect = viewport.getBoundingClientRect()
+    updateScale(rect.width, rect.height)
 
     const resizeObserver = new ResizeObserver((entries) => {
       const entry = entries[0]
@@ -60,36 +64,63 @@ export function TitleSlide() {
   return (
     <main className="presentation-shell">
       <div className="title-slide__viewport" ref={viewportRef}>
+        <div className="title-slide__edge-stripes" aria-hidden="true" />
         {isResponsiveViewport ? (
           <section
             aria-label="Responsive title slide"
             className="title-slide-responsive"
           >
             <div className="title-slide-responsive__inner">
+              <div className="title-slide-responsive__stripes" aria-hidden="true" />
+              <div className="title-slide-responsive__decor" aria-hidden="true">
+                <span className="title-slide-responsive__hex title-slide-responsive__hex--one" />
+                <span className="title-slide-responsive__hex title-slide-responsive__hex--two" />
+                <span className="title-slide-responsive__hex title-slide-responsive__hex--three" />
+                <span className="title-slide-responsive__hex title-slide-responsive__hex--four" />
+                <span className="title-slide-responsive__dots" />
+              </div>
+
               <div className="title-slide-responsive__logo">
                 <div className="title-slide-responsive__logo-asset">
                   <Image
-                    alt="Locus-T"
+                    alt="LOCUS-T and DigitalBee"
                     fill
                     priority
-                    sizes="(max-width: 1023px) 280px, 323px"
-                    src="/reference/figma-16-170-logo.png"
+                    sizes="(max-width: 1023px) 72vw, 760px"
+                    src="/reference/title-locus-digitalbee-lockup.png"
                   />
                 </div>
               </div>
 
               <div className="title-slide-responsive__body">
-                <p className="title-slide-responsive__date">April 2026</p>
-
                 <div className="title-slide-responsive__copy">
                   <h1 className="title-slide-responsive__heading">
-                    LOCUS-T Internship
-                    <span>Final Presentation</span>
+                    Locus-T x <span>DigitalBee</span>
                   </h1>
 
+                  <p className="title-slide-responsive__subtitle">
+                    Internship Final Presentation
+                  </p>
+
                   <div className="title-slide-responsive__presenter">
-                    <p>Ng Sin Lin (Michelle)</p>
-                    <p>Paid Media R&amp;D Internship</p>
+                    <div>
+                      <CalendarDays aria-hidden="true" />
+                      <p>April 2026</p>
+                    </div>
+                    <div>
+                      <UserRound aria-hidden="true" />
+                      <p>
+                        Presented by
+                        <span>Ng Sin Lin (Michelle)</span>
+                      </p>
+                    </div>
+                    <div>
+                      <BriefcaseBusiness aria-hidden="true" />
+                      <p>
+                        Paid Media
+                        <span>R&amp;D Internship</span>
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -99,7 +130,7 @@ export function TitleSlide() {
 
                 <div className="title-slide-responsive__footer-copy">
                   <p>Corporate Presentation Desk</p>
-                  <p>LOCUS-T SDN BHD</p>
+                  <p>Locus-T x DigitalBee</p>
                 </div>
               </div>
             </div>
@@ -108,53 +139,73 @@ export function TitleSlide() {
           <section className="title-slide title-slide--desktop" data-node-id="16:170">
             <div
               className="title-slide__canvas"
-              style={{ "--slide-scale": scale } as CSSProperties}
+              style={{
+                "--slide-scale": scale,
+                visibility: viewportWidth > 0 ? "visible" : "hidden",
+              } as CSSProperties}
             >
               <div className="title-slide__frame" data-node-id="20:49">
+                <div className="title-slide__stripes" aria-hidden="true" />
+                <div className="title-slide__decor" aria-hidden="true">
+                  <span className="title-slide__hex title-slide__hex--one" />
+                  <span className="title-slide__hex title-slide__hex--two" />
+                  <span className="title-slide__hex title-slide__hex--three" />
+                  <span className="title-slide__hex title-slide__hex--four" />
+                  <span className="title-slide__dots" />
+                </div>
+
                 <div className="title-slide__logo" data-node-id="13:101">
                   <div className="title-slide__logo-asset">
                     <Image
-                      alt="Locus-T"
+                      alt="LOCUS-T and DigitalBee"
                       fill
                       priority
-                      sizes="323px"
-                      src="/reference/figma-16-170-logo.png"
+                      sizes="760px"
+                      src="/reference/title-locus-digitalbee-lockup.png"
                     />
                   </div>
                 </div>
 
                 <div className="title-slide__content" data-node-id="13:107">
                   <div className="title-slide__hero-row" data-node-id="13:104">
-                    <p className="title-slide__date" data-node-id="2:10">
-                      April 2026
-                    </p>
-
                     <div className="title-slide__copy" data-node-id="13:103">
                       <div className="title-slide__heading" data-node-id="2:6">
                         <h1>
-                          LOCUS-T Internship
-                          <span>Final Presentation</span>
+                          Locus-T x <span>DigitalBee</span>
                         </h1>
                       </div>
 
+                      <p className="title-slide__subtitle">
+                        Internship Final Presentation
+                      </p>
+
                       <div className="title-slide__presenter" data-node-id="2:8">
-                        <p>Ng Sin Lin (Michelle)</p>
-                        <p>Paid Media R&amp;D Internship</p>
+                        <div className="title-slide__meta-item">
+                          <CalendarDays aria-hidden="true" />
+                          <p>April 2026</p>
+                        </div>
+                        <div className="title-slide__meta-divider" />
+                        <div className="title-slide__meta-item">
+                          <UserRound aria-hidden="true" />
+                          <p>
+                            Presented by
+                            <span>Ng Sin Lin (Michelle)</span>
+                          </p>
+                        </div>
+                        <div className="title-slide__meta-divider" />
+                        <div className="title-slide__meta-item">
+                          <BriefcaseBusiness aria-hidden="true" />
+                          <p>
+                            Paid Media
+                            <span>R&amp;D Internship</span>
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
 
                   <div className="title-slide__footer-block" data-node-id="13:106">
-                    <div className="title-slide__footer-line" data-node-id="2:12">
-                      <Image
-                        alt=""
-                        aria-hidden="true"
-                        fill
-                        sizes="1791px"
-                        src="/reference/figma-16-170-line.svg"
-                        unoptimized
-                      />
-                    </div>
+                    <div className="title-slide__footer-line" data-node-id="2:12" />
 
                     <div className="title-slide__footer-copy" data-node-id="13:105">
                       <p className="title-slide__footer-left" data-node-id="2:13">
@@ -162,7 +213,7 @@ export function TitleSlide() {
                       </p>
 
                       <p className="title-slide__footer-right" data-node-id="2:14">
-                        LOCUS-T SDN BHD
+                        Locus-T x DigitalBee
                       </p>
                     </div>
                   </div>

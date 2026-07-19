@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import type { CSSProperties } from "react"
 
 import { useSlideScale } from "@/components/use-slide-scale"
@@ -9,10 +8,49 @@ import styles from "./section-opener-slide.module.css"
 
 const DESIGN_WIDTH = 1920
 const DESIGN_HEIGHT = 1080
+const TRACKER_ITEMS = Array.from({ length: 9 }, (_, index) =>
+  String(index + 1).padStart(2, "0")
+)
 
 type SectionOpenerSlideProps = {
   sectionNumber?: string
   title?: string
+}
+
+function renderTitle(title: string) {
+  if (title === "Why I Chose LOCUS-T & My Initial Expectations") {
+    return (
+      <>
+        Why I Chose
+        <br />
+        LOCUS-T & <span>My Initial Expectations</span>
+      </>
+    )
+  }
+
+  if (title.includes("&")) {
+    const [before, after] = title.split(/&(.+)/)
+
+    return (
+      <>
+        {before.trim()} & <span>{after.trim()}</span>
+      </>
+    )
+  }
+
+  const words = title.trim().split(/\s+/)
+
+  if (words.length <= 1) {
+    return <span>{title}</span>
+  }
+
+  const highlight = words.pop()
+
+  return (
+    <>
+      {words.join(" ")} <span>{highlight}</span>
+    </>
+  )
 }
 
 export function SectionOpenerSlide({
@@ -36,6 +74,20 @@ export function SectionOpenerSlide({
   return (
     <main className={styles.shell}>
       <div className={styles.viewport} ref={viewportRef}>
+        <div className={styles.edgeDecor} aria-hidden="true">
+          <div className={styles.edgeStripes} />
+          <div className={styles.edgeDotClusterBottom} />
+          <div className={styles.edgeRightDecor}>
+            <span className={styles.edgeRightHexOne} />
+            <span className={styles.edgeRightHexTwo} />
+            <span className={styles.edgeRightHexThree} />
+            <span className={styles.edgeRightHexFour} />
+            <span className={styles.edgeRightLine} />
+          </div>
+          <div className={styles.edgeCornerHex} />
+          <div className={styles.edgeFooterRule} />
+        </div>
+
         {useAdaptiveLayout ? (
           <section
             className={[
@@ -47,28 +99,14 @@ export function SectionOpenerSlide({
             aria-label="Section opener slide"
           >
             <div className={styles.responsiveInner}>
+              <div className={styles.responsiveStripes} aria-hidden="true" />
+              <div className={styles.responsiveDecor} aria-hidden="true">
+                <span />
+                <span />
+                <span />
+              </div>
+
               <div className={styles.responsiveShapes} aria-hidden="true">
-                <div className={styles.responsiveOutline} data-transition-content="decor">
-                  <Image
-                    alt=""
-                    fill
-                    priority
-                    sizes="(max-width: 767px) 78vw, 38vw"
-                    src="/reference/figma-17-174-outline.svg"
-                    unoptimized
-                  />
-                </div>
-
-                <div className={styles.responsiveCard} data-transition-shape>
-                  <Image
-                    alt=""
-                    fill
-                    sizes="(max-width: 767px) 64vw, 30vw"
-                    src="/reference/figma-17-174-card.svg"
-                    unoptimized
-                  />
-                </div>
-
                 {showNumber ? (
                   <p className={styles.responsiveNumber} data-transition-content="title">
                     {sectionNumber}
@@ -77,7 +115,7 @@ export function SectionOpenerSlide({
               </div>
 
               <div className={styles.responsiveCopy} data-transition-content="title">
-                <h1 className={styles.responsiveTitle}>{title}</h1>
+                <h1 className={styles.responsiveTitle}>{renderTitle(title)}</h1>
               </div>
             </div>
           </section>
@@ -88,34 +126,42 @@ export function SectionOpenerSlide({
               style={{ "--slide-scale": scale } as CSSProperties}
             >
               <div className={styles.frame}>
+                <div className={styles.stripes} aria-hidden="true" />
+                <div className={styles.dotClusterTop} aria-hidden="true" />
+                <div className={styles.dotClusterBottom} aria-hidden="true" />
+                <div className={styles.rightDecor} aria-hidden="true">
+                  <span className={styles.rightHexOne} />
+                  <span className={styles.rightHexTwo} />
+                  <span className={styles.rightHexThree} />
+                  <span className={styles.rightHexFour} />
+                  <span className={styles.rightLine} />
+                </div>
+                <div className={styles.cornerHex} aria-hidden="true" />
+                <div className={styles.footerRule} aria-hidden="true" />
+
+                <nav className={styles.tracker} aria-label="Section tracker">
+                  {TRACKER_ITEMS.map((item) => {
+                    const isActive = item === sectionNumber
+
+                    return (
+                      <div
+                        className={[
+                          styles.trackerItem,
+                          isActive ? styles.trackerItemActive : "",
+                        ]
+                          .filter(Boolean)
+                          .join(" ")}
+                        key={item}
+                      >
+                        <span>{item}</span>
+                      </div>
+                    )
+                  })}
+                </nav>
+
                 <h1 className={styles.title} data-transition-content="title">
-                  {title}
+                  {renderTitle(title)}
                 </h1>
-
-                <div
-                  className={styles.outline}
-                  aria-hidden="true"
-                  data-transition-content="decor"
-                >
-                  <Image
-                    alt=""
-                    fill
-                    priority
-                    sizes="1119px"
-                    src="/reference/figma-17-174-outline.svg"
-                    unoptimized
-                  />
-                </div>
-
-                <div className={styles.card} aria-hidden="true" data-transition-shape>
-                  <Image
-                    alt=""
-                    fill
-                    sizes="874px"
-                    src="/reference/figma-17-174-card.svg"
-                    unoptimized
-                  />
-                </div>
 
                 {showNumber ? (
                   <p className={styles.number} data-transition-content="title">

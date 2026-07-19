@@ -23,7 +23,7 @@
   background:
     radial-gradient(
       circle at top right,
-      rgba(238, 32, 40, 0.08),
+      rgba(255, 176, 0, 0.08),
       transparent 34%
     ),
     linear-gradient(180deg, #ffffff 0%, #fffdfd 100%);
@@ -55,14 +55,14 @@
   width: 340px;
   height: 340px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(238, 32, 40, 0.1), transparent 72%);
+  background: radial-gradient(circle, rgba(255, 176, 0, 0.1), transparent 72%);
   filter: blur(12px);
   opacity: 0.85;
 }
 
 .topLine,
 .responsiveTopLine {
-  background: #ee2028;
+  background: #ffb000;
   transform-origin: left center;
   animation: lineReveal 820ms var(--motion-ease) both;
 }
@@ -89,7 +89,7 @@
 }
 
 .brandGhost span {
-  color: rgba(238, 32, 40, 0.045);
+  color: rgba(255, 176, 0, 0.045);
   font-size: 154px;
   font-weight: 700;
   letter-spacing: calc(-0.1em + var(--letter-spacing-boost));
@@ -123,7 +123,7 @@
   width: 230px;
   height: 230px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(238, 32, 40, 0.12), transparent 68%);
+  background: radial-gradient(circle, rgba(255, 176, 0, 0.12), transparent 68%);
   filter: blur(10px);
   pointer-events: none;
 }
@@ -135,8 +135,8 @@
   margin: 0;
   padding: 0.8rem 1.2rem;
   border-radius: 999px;
-  background: rgba(238, 32, 40, 0.08);
-  color: #ee2028;
+  background: rgba(255, 176, 0, 0.08);
+  color: #ffb000;
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: calc(0.15em + var(--letter-spacing-boost));
@@ -205,7 +205,7 @@
   width: 7px;
   min-height: 112px;
   border-radius: 999px;
-  background: linear-gradient(180deg, #ee2028, rgba(238, 32, 40, 0.1));
+  background: linear-gradient(180deg, #ffb000, rgba(255, 176, 0, 0.1));
 }
 
 .lead,
@@ -247,9 +247,9 @@
   border-radius: 48% 52% 50% 50%;
   background: radial-gradient(
     circle,
-    rgba(238, 32, 40, 0.2),
-    rgba(238, 32, 40, 0.08) 38%,
-    rgba(238, 32, 40, 0.02) 62%,
+    rgba(255, 176, 0, 0.2),
+    rgba(255, 176, 0, 0.08) 38%,
+    rgba(255, 176, 0, 0.02) 62%,
     transparent 74%
   );
   filter: blur(10px);
@@ -259,7 +259,7 @@
 .thoughtRing {
   position: absolute;
   inset: 38px 34px 26px;
-  border: 1.5px solid rgba(238, 32, 40, 0.28);
+  border: 1.5px solid rgba(255, 176, 0, 0.28);
   border-radius: 50% 46% 52% 48%;
   animation: ringDrift 2600ms ease-in-out 420ms infinite;
 }
@@ -282,10 +282,10 @@
   height: 92px;
   background: linear-gradient(
     180deg,
-    rgba(238, 32, 40, 0.28),
-    rgba(238, 32, 40, 0.1)
+    rgba(255, 176, 0, 0.28),
+    rgba(255, 176, 0, 0.1)
   );
-  box-shadow: 0 24px 40px rgba(238, 32, 40, 0.12);
+  box-shadow: 0 24px 40px rgba(255, 176, 0, 0.12);
 }
 
 .thoughtOrbSecondary,
@@ -303,7 +303,7 @@
   top: 114px;
   width: 46px;
   height: 46px;
-  background: rgba(238, 32, 40, 0.18);
+  background: rgba(255, 176, 0, 0.18);
 }
 
 .points,
@@ -507,7 +507,7 @@
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.72);
   background: rgba(255, 255, 255, 0.72);
-  color: #ee2028;
+  color: #ffb000;
   font-size: 1.16rem;
   font-weight: 800;
   letter-spacing: calc(-0.06em + var(--letter-spacing-boost));
@@ -657,7 +657,7 @@
   background:
     radial-gradient(
       circle at top right,
-      rgba(238, 32, 40, 0.08),
+      rgba(255, 176, 0, 0.08),
       transparent 34%
     ),
     linear-gradient(180deg, #ffffff 0%, #fffdfd 100%);
@@ -689,7 +689,7 @@
 }
 
 .responsiveBrandGhost span {
-  color: rgba(238, 32, 40, 0.045);
+  color: rgba(255, 176, 0, 0.045);
   font-size: clamp(4rem, 18vw, 7.6rem);
   font-weight: 700;
   letter-spacing: calc(-0.1em + var(--letter-spacing-boost));
