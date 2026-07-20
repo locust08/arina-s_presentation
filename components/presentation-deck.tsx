@@ -266,9 +266,37 @@ function getSlides(challengeRevealStep: number, adviceRevealStep: number) {
 
     if (index === 3) {
       return [
-        openerSlide,
         {
-          id: "section-opener-04-slide-12",
+          id: "most-exciting-moment",
+          label: "My Most Exciting Moment",
+          theme: "light" as const,
+          render: () => (
+            <PresentationStorySlide
+              lead="Seeing unclear starting material become working, deployed websites was my most exciting moment."
+              sectionNumber="03"
+              sections={[
+                {
+                  label: "Took Ownership",
+                  body: [
+                    "I helped turn unclear requirements into a practical website direction.",
+                    "I reviewed, adjusted and tested the work through to deployment.",
+                  ],
+                },
+                {
+                  label: "Solved Real Problems",
+                  body: [
+                    "Delivered Impact through clearer, working website experiences.",
+                    "Boon Chye showed how separate service websites could become one organised site.",
+                  ],
+                },
+              ]}
+              title="My Most Exciting Moment"
+              variant="breakthrough"
+            />
+          ),
+        },
+        {
+          id: "section-opener-04",
           label: "Biggest Challenge & How I Overcame It",
           theme: "dark" as const,
           render: () => (
