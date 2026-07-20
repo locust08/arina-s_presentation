@@ -38,7 +38,7 @@ const SHARED_SHAPE_CLIP_PATH =
 const SHARED_PANEL_CLIP_PATH =
   "polygon(3% 0%, 97% 0%, 100% 8%, 100% 92%, 97% 100%, 3% 100%, 0% 92%, 0% 8%)"
 const PHASES_INTERSTITIAL_SLIDE_ID = "project-phases"
-const CHALLENGE_REVEAL_SLIDE_ID = "biggest-challenge-content"
+const CHALLENGE_REVEAL_SLIDE_ID = "biggest-challenge-reveal"
 const MAX_CHALLENGE_REVEAL_STEP = 3
 const ADVICE_REVEAL_SLIDE_ID = "my-internship-my-future-content"
 const MAX_ADVICE_REVEAL_STEP = 1
@@ -803,7 +803,7 @@ export function PresentationDeck() {
   const handleWheelNavigation = (event: WheelEvent<HTMLDivElement>) => {
     revealControls()
 
-    if (isResponsiveViewport || sharedMorphTransition) {
+    if (sharedMorphTransition) {
       return
     }
 
