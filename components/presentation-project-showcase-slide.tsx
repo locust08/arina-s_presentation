@@ -12,6 +12,7 @@ type ShowcaseProject = {
   description: string
   image: string
   name: string
+  url?: string
 }
 
 export function PresentationProjectShowcaseSlide({
@@ -28,8 +29,9 @@ export function PresentationProjectShowcaseSlide({
       <div className={styles.layout}>
         <p className={styles.subtitle}>{subtitle}</p>
         <div className={projects.length === 2 ? styles.gridTwo : styles.gridThree}>
-          {projects.map((project, index) => (
-            <article className={styles.project} key={project.name}>
+          {projects.map((project, index) => {
+            const content = (
+              <>
               <div className={styles.media}>
                 <Image
                   alt={`${project.name} website`}
@@ -45,8 +47,26 @@ export function PresentationProjectShowcaseSlide({
                 <h2>{project.name}</h2>
                 <p>{project.description}</p>
               </div>
-            </article>
-          ))}
+              </>
+            )
+
+            return project.url ? (
+              <a
+                aria-label={`Visit the ${project.name} website`}
+                className={`${styles.project} ${styles.projectLink}`}
+                href={project.url}
+                key={project.name}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                {content}
+              </a>
+            ) : (
+              <article className={styles.project} key={project.name}>
+                {content}
+              </article>
+            )
+          })}
         </div>
       </div>
     </ContentSlideTemplate>
