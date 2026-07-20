@@ -307,7 +307,7 @@ function getSlides(challengeRevealStep: number, adviceRevealStep: number) {
           render: () => (
             <PresentationProjectShowcaseSlide
               projects={[
-                { name: "Centrix", description: "Clearer connectivity, facilities, layouts and registration flow.", image: "/reference/centrix.png", url: "https://centrix.pages.dev/" },
+                { name: "Centrix", description: "Clearer connectivity, facilities, layouts and registration flow.", image: "/reference/centrix.png", url: "https://centrix.easondev.workers.dev/" },
                 { name: "Metro Pinjaman Berlesen", description: "Multi-page structure with application, appointment and tracking flows.", image: "/reference/juniorlee.png", url: "https://metropinjamanberlesen.pages.dev/" },
                 { name: "Boon Chye", description: "One organised site created from separate service websites.", image: "/reference/boonchye.png", url: "https://boon-chye.pages.dev/" },
               ]}
