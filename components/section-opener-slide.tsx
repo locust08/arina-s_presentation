@@ -18,12 +18,12 @@ type SectionOpenerSlideProps = {
 }
 
 function renderTitle(title: string) {
-  if (title === "Why I Chose LOCUS-T & My Initial Expectations") {
+  if (title === "Why I Chose the Company & My Initial Expectations") {
     return (
       <>
         Why I Chose
         <br />
-        LOCUS-T & <span>My Initial Expectations</span>
+        the Company & <span>My Initial Expectations</span>
       </>
     )
   }
