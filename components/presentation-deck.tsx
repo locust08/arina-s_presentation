@@ -17,8 +17,8 @@ import { PresentationAdviceSlide } from "@/components/presentation-advice-slide"
 import { PresentationInitialExpectationSlide } from "@/components/presentation-initial-expectation-slide"
 import { PresentationLocusReasonsSlide } from "@/components/presentation-locus-reasons-slide"
 import { PresentationOverviewSlide } from "@/components/presentation-overview-slide"
-import { PresentationPointsSlide } from "@/components/presentation-points-slide"
 import { PresentationProjectShowcaseSlide } from "@/components/presentation-project-showcase-slide"
+import { PresentationChallengeSolutionSlide } from "@/components/presentation-challenge-solution-slide"
 import { SECTION_TITLES } from "@/components/presentation-sections"
 import { PresentationStorySlide } from "@/components/presentation-story-slide"
 import { SectionOpenerSlide } from "@/components/section-opener-slide"
@@ -278,19 +278,21 @@ function getSlides(challengeRevealStep: number, adviceRevealStep: number) {
           ),
         },
         {
-          id: "problem-solving-method",
-          label: "Problem-Solving Method",
+          id: "biggest-challenge-content",
+          label: "Biggest Challenge & How I Overcame It",
           theme: "light" as const,
           render: () => (
-            <PresentationPointsSlide
-              lead="A simple method helped me work through unfamiliar technical problems without accepting generated suggestions blindly."
-              points={[
-                "Break the problem into smaller parts.",
-                "Use documentation and AI tools to understand unfamiliar concepts.",
-                "Review, test and debug each change before moving forward.",
+            <PresentationChallengeSolutionSlide
+              challenges={[
+                { title: "Limited Design Guidance", body: "Most projects did not include a detailed redesign guide or a dedicated designer to refer to." },
+                { title: "Turning Content into a Visual Direction", body: "It was challenging to decide the page structure, visual hierarchy and frontend style for different industries." },
+                { title: "Risk of Over-Relying on AI", body: "AI generated ideas and code quickly, but some outputs were generic, inaccurate or unsuitable for the business." },
               ]}
-              sectionNumber="04"
-              title="Problem-Solving Method"
+              solutions={[
+                { title: "Researched Before Designing", body: "Reviewed the old website, business goals, target users, industry examples and suitable templates." },
+                { title: "Planned the Structure First", body: "Organised the content, user journey, sections and calls to action before refining the visual design." },
+                { title: "Used AI Critically", body: "Compared AI suggestions, manually refined the frontend, tested responsiveness and requested project-manager feedback." },
+              ]}
             />
           ),
         },
