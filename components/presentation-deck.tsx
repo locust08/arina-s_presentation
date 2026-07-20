@@ -368,7 +368,7 @@ function getSlides(challengeRevealStep: number, adviceRevealStep: number) {
               lead="The internship introduced me to full-stack and AI-assisted development in a practical working environment."
               points={[
                 "Continue developing my skills in web development and content management systems.",
-                "Explore practical AI applications while strengthening my own technical judgement.",
+                "Explore practical AI applications while strengthening your own technical judgement.",
                 "Stay confident when learning unfamiliar tools and solving new problems.",
               ]}
               quote={{
