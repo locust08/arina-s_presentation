@@ -9,9 +9,6 @@ export const SPEAKER_NOTES: Record<string, string[]> = {
   "project-overview-content": [
     "Introduce the five projects: Centrix, Metro Pinjaman Berlesen, Boon Chye, HealthStrat and Ruang Bestari.",
   ],
-  "project-phases": [
-    "Walk through review, design, development, testing and delivery as one connected workflow.",
-  ],
   "tools-and-technologies": [
     "AI supported ideation and troubleshooting; I remained responsible for reviewing, adjusting and testing the work.",
   ],

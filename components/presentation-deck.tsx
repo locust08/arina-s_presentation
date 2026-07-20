@@ -12,7 +12,6 @@ import {
   useState,
 } from "react"
 
-import { PresentationPhasesSlide } from "@/components/presentation-phases-slide"
 import { PresentationConclusionSlide } from "@/components/presentation-conclusion-slide"
 import { PresentationAdviceSlide } from "@/components/presentation-advice-slide"
 import { PresentationInitialExpectationSlide } from "@/components/presentation-initial-expectation-slide"
@@ -204,40 +203,6 @@ function getSlides(challengeRevealStep: number, adviceRevealStep: number) {
               lead="My internship work covered the complete website workflow across five real projects."
               sectionNumber="02"
               title="Project Overview"
-            />
-          ),
-        },
-        {
-          id: "project-phases",
-          label: "Project Phases / What Was Expected",
-          theme: "light" as const,
-          render: () => (
-            <PresentationPhasesSlide
-              lead="A repeatable workflow used to move from requirements to a tested website preview."
-              phaseGroups={[
-                {
-                  duration: "Step 01",
-                  title: "Review",
-                  items: ["Requirements, existing content and user journey"],
-                },
-                {
-                  duration: "Step 02",
-                  title: "Design",
-                  items: ["Visual hierarchy, layout and responsive direction"],
-                },
-                {
-                  duration: "Step 03",
-                  title: "Develop",
-                  items: ["Frontend, backend-related work and CMS"],
-                },
-                {
-                  duration: "Step 04",
-                  title: "Test & Deliver",
-                  items: ["Responsive checks, functional testing and deployment"],
-                },
-              ]}
-              sectionNumber="02"
-              title="Development Workflow"
             />
           ),
         },
