@@ -1,4 +1,4 @@
-/* eslint-disable react-hooks/set-state-in-effect, react-hooks/exhaustive-deps */
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client"
 
 import Image from "next/image"
@@ -757,9 +757,19 @@ export function PresentationDeck() {
 
   useLayoutEffect(() => {
     try {
+      const requestedSlide = new URLSearchParams(window.location.search).get("slide")
+      const requestedNumber = Number(requestedSlide)
+      const requestedIndex = requestedSlide
+        ? Number.isInteger(requestedNumber) && requestedNumber > 0
+          ? Math.min(requestedNumber - 1, slides.length - 1)
+          : slides.findIndex((slide) => slide.id === requestedSlide)
+        : -1
       const rawNavigation = window.localStorage.getItem(NAVIGATION_STORAGE_KEY)
 
       if (!rawNavigation) {
+        if (requestedIndex >= 0) {
+          setCurrentIndex(requestedIndex)
+        }
         setHasRestoredNavigation(true)
         return
       }
@@ -787,7 +797,9 @@ export function PresentationDeck() {
           ? savedNavigation.currentIndex
           : 0
       const nextIndex =
-        savedIndexById >= 0
+        requestedIndex >= 0
+          ? requestedIndex
+          : savedIndexById >= 0
           ? savedIndexById
           : Math.max(0, Math.min(savedIndexByNumber, slides.length - 1))
       const nextSlide = slides[nextIndex]
@@ -823,6 +835,10 @@ export function PresentationDeck() {
       NAVIGATION_STORAGE_KEY,
       JSON.stringify(navigationState)
     )
+
+    const nextUrl = new URL(window.location.href)
+    nextUrl.searchParams.set("slide", String(currentIndex + 1))
+    window.history.replaceState(null, "", nextUrl)
   }, [
     adviceRevealStep,
     challengeRevealStep,

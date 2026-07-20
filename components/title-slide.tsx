@@ -3,7 +3,7 @@
 import Image from "next/image"
 import type { CSSProperties } from "react"
 import { useLayoutEffect, useRef, useState } from "react"
-import { BriefcaseBusiness, Code2, UserRound } from "lucide-react"
+import { BriefcaseBusiness, CalendarDays, UserRound } from "lucide-react"
 
 const DESIGN_WIDTH = 1920
 const DESIGN_HEIGHT = 1080
@@ -95,7 +95,7 @@ export function TitleSlide() {
               <div className="title-slide-responsive__body">
                 <div className="title-slide-responsive__copy">
                   <h1 className="title-slide-responsive__heading">
-                    Metro Pinjaman <span>Berlesen</span>
+                    LOCUS-T <span>x DigitalBee</span>
                   </h1>
 
                   <p className="title-slide-responsive__subtitle">
@@ -104,21 +104,24 @@ export function TitleSlide() {
 
                   <div className="title-slide-responsive__presenter">
                     <div>
-                      <Code2 aria-hidden="true" />
-                      <p>Website Redesign</p>
+                      <CalendarDays aria-hidden="true" />
+                      <p>
+                        16 March
+                        <span>20 July 2026</span>
+                      </p>
                     </div>
                     <div>
                       <UserRound aria-hidden="true" />
                       <p>
-                        Internship Project
-                        <span>Final Presentation</span>
+                        Nur Arina
+                        <span>Qistinah</span>
                       </p>
                     </div>
                     <div>
                       <BriefcaseBusiness aria-hidden="true" />
                       <p>
-                        Full-stack
-                        <span>Website Development</span>
+                        Developer
+                        <span>Intern</span>
                       </p>
                     </div>
                   </div>
@@ -130,7 +133,7 @@ export function TitleSlide() {
 
                 <div className="title-slide-responsive__footer-copy">
                   <p>Internship Final Presentation</p>
-                  <p>Metro Pinjaman Berlesen</p>
+                  <p>LOCUS-T x DigitalBee</p>
                 </div>
               </div>
             </div>
@@ -171,7 +174,7 @@ export function TitleSlide() {
                     <div className="title-slide__copy" data-node-id="13:103">
                       <div className="title-slide__heading" data-node-id="2:6">
                         <h1>
-                          Metro Pinjaman <span>Berlesen</span>
+                          LOCUS-T <span>x DigitalBee</span>
                         </h1>
                       </div>
 
@@ -181,23 +184,26 @@ export function TitleSlide() {
 
                       <div className="title-slide__presenter" data-node-id="2:8">
                         <div className="title-slide__meta-item">
-                          <Code2 aria-hidden="true" />
-                          <p>Website Redesign</p>
+                          <CalendarDays aria-hidden="true" />
+                          <p>
+                            16 March
+                            <span>20 July 2026</span>
+                          </p>
                         </div>
                         <div className="title-slide__meta-divider" />
                         <div className="title-slide__meta-item">
                           <UserRound aria-hidden="true" />
                           <p>
-                            Internship Project
-                            <span>Final Presentation</span>
+                            Nur Arina
+                            <span>Qistinah</span>
                           </p>
                         </div>
                         <div className="title-slide__meta-divider" />
                         <div className="title-slide__meta-item">
                           <BriefcaseBusiness aria-hidden="true" />
                           <p>
-                            Full-stack
-                            <span>Website Development</span>
+                            Developer
+                            <span>Intern</span>
                           </p>
                         </div>
                       </div>
@@ -213,7 +219,7 @@ export function TitleSlide() {
                       </p>
 
                       <p className="title-slide__footer-right" data-node-id="2:14">
-                        Metro Pinjaman Berlesen
+                        LOCUS-T x DigitalBee
                       </p>
                     </div>
                   </div>
