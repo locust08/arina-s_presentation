@@ -308,8 +308,8 @@ function getSlides(challengeRevealStep: number, adviceRevealStep: number) {
             <PresentationProjectShowcaseSlide
               projects={[
                 { name: "Centrix", description: "Clearer connectivity, facilities, layouts and registration flow.", image: "/reference/centrix.png", url: "https://centrix.pages.dev/" },
-                { name: "Metro Pinjaman Berlesen", description: "Multi-page structure with application, appointment and tracking flows.", image: "/reference/juniorlee.png" },
-                { name: "Boon Chye", description: "One organised site created from separate service websites.", image: "/reference/boonchye.png" },
+                { name: "Metro Pinjaman Berlesen", description: "Multi-page structure with application, appointment and tracking flows.", image: "/reference/juniorlee.png", url: "https://metropinjamanberlesen.pages.dev/" },
+                { name: "Boon Chye", description: "One organised site created from separate service websites.", image: "/reference/boonchye.png", url: "https://boon-chye.pages.dev/" },
               ]}
               subtitle="Three website projects with different structures, audiences and user journeys."
               title="Product Showcase"
@@ -323,8 +323,8 @@ function getSlides(challengeRevealStep: number, adviceRevealStep: number) {
           render: () => (
             <PresentationProjectShowcaseSlide
               projects={[
-                { name: "HealthStrat", description: "A professional multi-page site structured from a detailed requirement document.", image: "/reference/healthstrat.png" },
-                { name: "Ruang Bestari", description: "A cleaner financing journey with benefits, trust, process and contact flow.", image: "/reference/ruangbestari.png" },
+                { name: "HealthStrat", description: "A professional multi-page site structured from a detailed requirement document.", image: "/reference/healthstrat.png", url: "https://healthstratconsulting.com/" },
+                { name: "Ruang Bestari", description: "A cleaner financing journey with benefits, trust, process and contact flow.", image: "/reference/ruangbestari.png", url: "https://ruangbestari-financing.pages.dev/" },
               ]}
               subtitle="Two further outputs focused on clear structure, trust and practical user journeys."
               title="Product Showcase: More Outputs"
