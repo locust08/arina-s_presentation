@@ -310,7 +310,7 @@ function getSlides(challengeRevealStep: number, adviceRevealStep: number) {
             <PresentationProjectShowcaseSlide
               projects={[
                 { name: "Centrix", description: "Clearer connectivity, facilities, layouts and registration flow.", image: "/reference/centrix.png", url: "https://centrix.easondev.workers.dev/" },
-                { name: "Metro Pinjaman Berlesen", description: "Multi-page structure with application, appointment and tracking flows.", image: "/reference/juniorlee.png", url: "https://metropinjamanberlesen.pages.dev/", videoUrl: "/media/metro-showcase.mp4" },
+                { name: "Metro Pinjaman Berlesen", description: "Multi-page structure with application, appointment and tracking flows.", image: "/reference/juniorlee.png", url: "https://metropinjamanberlesen.pages.dev/", videoUrl: "/media/metro-showcase.mp4", payloadVideoUrl: "/media/metro-payload.mp4" },
                 { name: "Boon Chye", description: "One organised site created from separate service websites.", image: "/reference/boonchye.png", url: "https://boon-chye.pages.dev/" },
               ]}
               subtitle="Three website projects with different structures, audiences and user journeys."

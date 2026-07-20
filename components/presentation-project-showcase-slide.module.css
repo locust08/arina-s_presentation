@@ -16,13 +16,13 @@
 .copy h2 { max-width: calc(100% - 54px); margin: 0 0 11px; color: var(--presentation-black); font-size: 27px; line-height: 1.08; }
 .copy p { margin: 0; color: var(--presentation-charcoal); font-size: 18px; line-height: 1.4; }
 .dialogBackdrop { position: fixed; inset: 0; z-index: 80; display: grid; place-items: center; padding: 48px; background: rgba(19, 19, 19, .64); backdrop-filter: blur(8px); }
-.dialog { position: relative; width: min(760px, 90vw); padding: 58px 64px 62px; border: 2px solid var(--presentation-yellow); border-radius: 30px; background: var(--presentation-white); box-shadow: 0 30px 90px rgba(0, 0, 0, .3); text-align: center; }
+.dialog { position: relative; width: min(960px, 90vw); padding: 58px 64px 62px; border: 2px solid var(--presentation-yellow); border-radius: 30px; background: var(--presentation-white); box-shadow: 0 30px 90px rgba(0, 0, 0, .3); text-align: center; }
 .dialogEyebrow { color: var(--presentation-yellow-dark); font-size: 17px; font-weight: 800; letter-spacing: .15em; }
 .dialog h2 { margin: 13px 50px 12px; color: var(--presentation-black); font-size: 42px; line-height: 1.08; }
 .dialog p { margin: 0 0 34px; color: var(--presentation-charcoal); font-size: 20px; }
 .closeButton { position: absolute; top: 20px; right: 20px; display: grid; width: 46px; height: 46px; place-items: center; border: 0; border-radius: 50%; background: var(--presentation-cream); color: var(--presentation-black); cursor: pointer; }
 .closeButton svg { width: 24px; height: 24px; }
-.dialogActions { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.dialogActions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .dialogActions a, .dialogActions button { display: flex; min-height: 76px; align-items: center; justify-content: center; gap: 12px; padding: 16px 22px; border: 2px solid var(--presentation-yellow); border-radius: 16px; background: var(--presentation-yellow); color: var(--presentation-black); font: inherit; font-size: 20px; font-weight: 800; text-decoration: none; cursor: pointer; }
 .dialogActions button { background: var(--presentation-black); color: var(--presentation-white); }
 .dialogActions svg { width: 24px; height: 24px; }

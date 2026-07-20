@@ -14,6 +14,7 @@ type ShowcaseProject = {
   description: string
   image: string
   name: string
+  payloadVideoUrl?: string
   url?: string
   videoUrl?: string
 }
@@ -28,11 +29,11 @@ export function PresentationProjectShowcaseSlide({
   title: string
 }) {
   const [selectedProject, setSelectedProject] = useState<ShowcaseProject | null>(null)
-  const [showVideo, setShowVideo] = useState(false)
+  const [activeVideo, setActiveVideo] = useState<{ label: string; src: string } | null>(null)
 
   const closeDialog = () => {
     setSelectedProject(null)
-    setShowVideo(false)
+    setActiveVideo(null)
   }
 
   return (
@@ -95,17 +96,17 @@ export function PresentationProjectShowcaseSlide({
           <div
             aria-labelledby="showcase-dialog-title"
             aria-modal="true"
-            className={`${styles.dialog} ${showVideo ? styles.videoDialog : ""}`}
+            className={`${styles.dialog} ${activeVideo ? styles.videoDialog : ""}`}
             onClick={(event) => event.stopPropagation()}
             role="dialog"
           >
             <button aria-label="Close showcase" className={styles.closeButton} onClick={closeDialog} type="button">
               <X aria-hidden="true" />
             </button>
-            {showVideo ? (
+            {activeVideo ? (
               <>
-                <h2 id="showcase-dialog-title">{selectedProject.name} Showcase</h2>
-                <video autoPlay className={styles.video} controls playsInline src={selectedProject.videoUrl} />
+                <h2 id="showcase-dialog-title">{selectedProject.name} — {activeVideo.label}</h2>
+                <video autoPlay className={styles.video} controls playsInline src={activeVideo.src} />
               </>
             ) : (
               <>
@@ -117,10 +118,16 @@ export function PresentationProjectShowcaseSlide({
                     <ExternalLink aria-hidden="true" />
                     Visit Website
                   </a>
-                  <button onClick={() => setShowVideo(true)} type="button">
+                  <button onClick={() => setActiveVideo({ label: "Shuffle Video", src: selectedProject.videoUrl! })} type="button">
                     <Play aria-hidden="true" />
-                    Watch Showcase Video
+                    Watch Shuffle Video
                   </button>
+                  {selectedProject.payloadVideoUrl && (
+                    <button onClick={() => setActiveVideo({ label: "Payload Video", src: selectedProject.payloadVideoUrl! })} type="button">
+                      <Play aria-hidden="true" />
+                      Watch Payload Video
+                    </button>
+                  )}
                 </div>
               </>
             )}
