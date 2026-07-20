@@ -31,13 +31,13 @@ export function PresentationChallengeSolutionSlide({
   )
 
   return (
-    <ContentSlideTemplate title="Biggest Challenge & How I Overcame It">
+    <ContentSlideTemplate title="Biggest Challenges & How I Overcame Them">
       <div className={styles.layout}>
-        {renderColumn("Biggest Challenge", challenges)}
+        {renderColumn("Biggest Challenges", challenges)}
         <div className={styles.arrows} aria-hidden="true">
           <span>→</span><span>→</span><span>→</span>
         </div>
-        {renderColumn("How I Overcame It", solutions)}
+        {renderColumn("How I Overcame Them", solutions)}
       </div>
     </ContentSlideTemplate>
   )

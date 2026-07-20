@@ -268,18 +268,18 @@ function getSlides(challengeRevealStep: number, adviceRevealStep: number) {
       return [
         {
           id: "section-opener-04",
-          label: "Biggest Challenge & How I Overcame It",
+          label: "Biggest Challenges & How I Overcame Them",
           theme: "dark" as const,
           render: () => (
             <SectionOpenerSlide
               sectionNumber="04"
-              title="Biggest Challenge & How I Overcame It"
+              title="Biggest Challenges & How I Overcame Them"
             />
           ),
         },
         {
           id: "biggest-challenge-content",
-          label: "Biggest Challenge & How I Overcame It",
+          label: "Biggest Challenges & How I Overcame Them",
           theme: "light" as const,
           render: () => (
             <PresentationChallengeSolutionSlide
