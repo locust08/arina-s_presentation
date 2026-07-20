@@ -117,6 +117,8 @@ function toSharedMorphRect(
 }
 
 function getSlides(challengeRevealStep: number, adviceRevealStep: number) {
+  void challengeRevealStep
+
   return [
     ...BASE_SLIDES,
     ...SECTION_TITLES.flatMap((title, index) => {
@@ -266,34 +268,13 @@ function getSlides(challengeRevealStep: number, adviceRevealStep: number) {
       return [
         openerSlide,
         {
-          id: "biggest-challenge-content",
+          id: "section-opener-04-slide-12",
           label: "Biggest Challenge & How I Overcame It",
-          theme: "light" as const,
+          theme: "dark" as const,
           render: () => (
-            <PresentationStorySlide
-              challengeRevealStep={challengeRevealStep}
-              lead="The biggest challenge was learning the structure of Payload CMS and connecting it reliably with the website."
+            <SectionOpenerSlide
               sectionNumber="04"
-              sections={[
-                {
-                  label: "Biggest Challenge",
-                  body: [
-                    "Payload CMS was new to me.",
-                    "Integration errors were not always easy to identify.",
-                    "I had to understand how the CMS structure connected with the frontend.",
-                  ],
-                },
-                {
-                  label: "How I Overcame It",
-                  body: [
-                    "I broke the implementation into smaller parts.",
-                    "I used documentation, Codex and ChatGPT to support troubleshooting.",
-                    "I reviewed every suggestion and tested each change before continuing.",
-                  ],
-                },
-              ]}
               title="Biggest Challenge & How I Overcame It"
-              variant="challenge"
             />
           ),
         },
