@@ -13,14 +13,6 @@
   overflow: hidden;
 }
 
-@media (max-width: 1023px) {
-  .viewport {
-    overflow-x: hidden;
-    overflow-y: auto;
-    overscroll-behavior-y: contain;
-  }
-}
-
 .desktop {
   position: relative;
   width: 100%;

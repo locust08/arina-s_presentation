@@ -1,5 +1,7 @@
 "use client"
 
+// Layout locked: preserve structure and positioning. Content changes only.
+
 import Image from "next/image"
 import type { CSSProperties, KeyboardEvent as ReactKeyboardEvent } from "react"
 import { useEffect, useMemo, useState } from "react"

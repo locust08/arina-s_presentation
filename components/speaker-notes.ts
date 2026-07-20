@@ -1,32 +1,39 @@
 export const SPEAKER_NOTES: Record<string, string[]> = {
-  "why-this-opportunity": [
-    "I chose this opportunity for practical reasons and because a smaller team offered broader hands-on exposure.",
-    "My supervisor's AI engineering experience also gave me a chance to explore AI-assisted working methods.",
+  "why-i-choose-locus-t": [
+    "Explain why a smaller, hands-on environment offered broader practical exposure.",
+    "Mention the opportunity to explore AI-assisted working methods with guidance from the company team.",
+  ],
+  "my-initial-expectation": [
+    "Focus on practical web development, real business requirements and responsible use of AI support.",
   ],
   "project-overview-content": [
-    "The original website had the required business information, but the visual presentation felt dated.",
-    "My goal was to keep the essential information and contact options while improving clarity, usability and responsiveness.",
+    "Introduce the five projects: Centrix, Metro Pinjaman Berlesen, Boon Chye, HealthStrat and Ruang Bestari.",
   ],
-  "initial-expectations": [
-    "I expected to improve my development skills and understand how a real business website differs from a university assignment.",
-    "I also wanted to explore practical uses of AI while staying responsible for the final decisions and implementation.",
+  "project-phases": [
+    "Walk through review, design, development, testing and delivery as one connected workflow.",
   ],
-  "project-process": [
-    "The work covered six connected stages: review, redesign, development, content management, tracking, and testing with deployment.",
-    "I handled this as a full-stack website project rather than only a visual redesign.",
+  "tools-and-technologies": [
+    "AI supported ideation and troubleshooting; I remained responsible for reviewing, adjusting and testing the work.",
   ],
-  "payload-success": [
-    "Payload CMS was the most unfamiliar part, so seeing the frontend and CMS work together was especially meaningful.",
+  "my-most-exciting-moment-content": [
+    "Payload CMS was unfamiliar, so seeing managed content and the frontend work together was especially meaningful.",
   ],
-  "payload-challenge": [
-    "I used documentation, Codex and ChatGPT as support, but reviewed suggestions and tested each change myself.",
+  "biggest-challenge-content": [
+    "Describe how breaking the integration into smaller parts made errors easier to understand.",
   ],
-  "showcase-home": ["Point out the clearer hero, navigation, loan information and visible contact actions."],
-  "showcase-mobile": ["Explain that the same content and actions remain accessible at a mobile width."],
-  "showcase-cms-tracking": [
-    "Payload made the content manageable, while tracking made website interactions measurable.",
-    "There is no suitable admin or tracking screenshot in the repository, so this slide deliberately avoids showing an invented interface.",
+  "problem-solving-method": [
+    "Emphasise documentation, careful review and testing rather than accepting generated suggestions directly.",
   ],
-  conclusion: ["The project connected design, development, content management, tracking, testing and deployment."],
-  future: ["I want to keep strengthening my own judgement while using AI as a supporting tool."],
+  "product-showcase": [
+    "Compare the different information structures and user journeys across Centrix, Metro and Boon Chye.",
+  ],
+  "product-showcase-more": [
+    "Point out HealthStrat's requirement-led structure and Ruang Bestari's clearer financing journey.",
+  ],
+  "conclusion-summary": [
+    "A complete website must be attractive, functional, manageable, measurable and appropriate for its users.",
+  ],
+  "my-internship-my-future-content": [
+    "Close by thanking the team and explaining the skills I want to continue developing.",
+  ],
 }

@@ -1,5 +1,7 @@
 "use client"
 
+// Layout locked: preserve structure and positioning. Content changes only.
+
 import type { CSSProperties } from "react"
 
 import { useSlideScale } from "@/components/use-slide-scale"

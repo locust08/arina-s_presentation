@@ -16,11 +16,10 @@ import { PresentationPhasesSlide } from "@/components/presentation-phases-slide"
 import { PresentationConclusionSlide } from "@/components/presentation-conclusion-slide"
 import { PresentationAdviceSlide } from "@/components/presentation-advice-slide"
 import { PresentationInitialExpectationSlide } from "@/components/presentation-initial-expectation-slide"
-import { PresentationHumanValueSlide } from "@/components/presentation-human-value-slide"
 import { PresentationLocusReasonsSlide } from "@/components/presentation-locus-reasons-slide"
 import { PresentationOverviewSlide } from "@/components/presentation-overview-slide"
-import { PresentationProjectContent } from "@/components/presentation-project-content"
-import { PresentationVideoSlide } from "@/components/presentation-video-slide"
+import { PresentationPointsSlide } from "@/components/presentation-points-slide"
+import { PresentationProjectShowcaseSlide } from "@/components/presentation-project-showcase-slide"
 import { SECTION_TITLES } from "@/components/presentation-sections"
 import { PresentationStorySlide } from "@/components/presentation-story-slide"
 import { SectionOpenerSlide } from "@/components/section-opener-slide"
@@ -42,7 +41,7 @@ const SHARED_PANEL_CLIP_PATH =
 const PHASES_INTERSTITIAL_SLIDE_ID = "project-phases"
 const CHALLENGE_REVEAL_SLIDE_ID = "biggest-challenge-content"
 const MAX_CHALLENGE_REVEAL_STEP = 3
-const ADVICE_REVEAL_SLIDE_ID = "advice-to-future-intern"
+const ADVICE_REVEAL_SLIDE_ID = "my-internship-my-future-content"
 const MAX_ADVICE_REVEAL_STEP = 1
 const NAVIGATION_STORAGE_KEY = "final-presentation-navigation"
 
@@ -118,7 +117,7 @@ function toSharedMorphRect(
   }
 }
 
-function legacyGetSlides(challengeRevealStep: number, adviceRevealStep: number) {
+function getSlides(challengeRevealStep: number, adviceRevealStep: number) {
   return [
     ...BASE_SLIDES,
     ...SECTION_TITLES.flatMap((title, index) => {
@@ -141,11 +140,11 @@ function legacyGetSlides(challengeRevealStep: number, adviceRevealStep: number) 
           theme: "light" as const,
           render: () => (
             <PresentationLocusReasonsSlide
-              lead="Three reasons LOCUS-T felt like the right place to learn, contribute, and grow."
+              lead="A smaller, hands-on environment gave me the opportunity to contribute across different project stages."
               points={[
-                "Strong learning opportunities",
-                "Real work, real application",
-                "Strong digital reputation",
+                "Hands-on experience across real website projects",
+                "Direct exposure to AI-assisted development workflows",
+                "Opportunities to learn beyond one narrow task",
               ]}
               sectionNumber="01"
             />
@@ -157,19 +156,19 @@ function legacyGetSlides(challengeRevealStep: number, adviceRevealStep: number) 
           theme: "light" as const,
           render: () => (
             <PresentationInitialExpectationSlide
-              lead="The expectations I had before the internship began."
+              lead="What I hoped to learn before joining the Operations Department."
               points={[
                 {
-                  label: "Real Work",
-                  text: "Learn how real digital marketing works.",
+                  label: "Web Development",
+                  text: "Improve my website development skills through practical work.",
                 },
                 {
                   label: "HANDS-ON EXPERIENCE",
-                  text: "Gain hands-on experience in real working environment.",
+                  text: "Understand real business requirements and working methods.",
                 },
                 {
-                  label: "Client Output",
-                  text: "Learn how ideas become real client outputs.",
+                  label: "Practical AI",
+                  text: "Explore how AI can support development while strengthening my own judgement.",
                 },
               ]}
               sectionNumber="01"
@@ -190,19 +189,19 @@ function legacyGetSlides(challengeRevealStep: number, adviceRevealStep: number) 
             <PresentationOverviewSlide
               cards={[
                 {
-                  label: "AI Video Generation",
-                  body: "Test AI-generated video production to speed up creative output and campaign execution.",
+                  label: "Five Website Projects",
+                  body: "Centrix, Metro Pinjaman Berlesen, Boon Chye, HealthStrat and Ruang Bestari.",
                 },
                 {
-                  label: "Strategic Goal",
-                  body: "Explore how AI can help clients increase traffic and sales while maintaining or reducing total ad spend.",
+                  label: "Full-stack Contribution",
+                  body: "Design improvement, frontend development, backend-related work and content management.",
                 },
                 {
-                  label: "AI Website & Embedded Form Generation",
-                  body: "Develop AI-assisted website and embedded forms to improve speed, consistency, and lead capture.",
+                  label: "Delivery & Quality",
+                  body: "Responsive testing, functional testing, tracking and preview deployment.",
                 },
               ]}
-              lead="A structured overview of where I was placed, what I worked on, and why the project mattered."
+              lead="My internship work covered the complete website workflow across five real projects."
               sectionNumber="02"
               title="Project Overview"
             />
@@ -214,63 +213,48 @@ function legacyGetSlides(challengeRevealStep: number, adviceRevealStep: number) 
           theme: "light" as const,
           render: () => (
             <PresentationPhasesSlide
-              lead="A four-phase roadmap showing how the internship moved from AI-generated reel experiments into a broader AI website generation stage."
+              lead="A repeatable workflow used to move from requirements to a tested website preview."
               phaseGroups={[
                 {
-                  duration: "2 weeks",
-                  title: "AI Video Generation Reels",
-                  items: ["Signature Market - Two Tails"],
-                  videos: [
-                    {
-                      title: "Signature Market - Two Tails",
-                      url: "/videos/slide-8/signature-market-two-tails.mp4",
-                    },
-                  ],
+                  duration: "Step 01",
+                  title: "Review",
+                  items: ["Requirements, existing content and user journey"],
                 },
                 {
-                  duration: "2 weeks",
-                  title: "AI Video Generation Reels",
-                  items: ["Kenny Hills Bakers - Peach Strudel"],
-                  videos: [
-                    {
-                      title: "Kenny Hills Bakers - Peach Strudel",
-                      url: "/videos/slide-8/kenny-hills-bakers-peach-strudel.mp4",
-                    },
-                  ],
+                  duration: "Step 02",
+                  title: "Design",
+                  items: ["Visual hierarchy, layout and responsive direction"],
                 },
                 {
-                  duration: "2 weeks",
-                  title: "AI Video Generation Reels",
-                  items: ["Kapten Batik"],
-                  videos: [
-                    {
-                      title: "Kapten Batik",
-                      url: "/videos/slide-8/kapten-batik.mp4",
-                    },
-                  ],
+                  duration: "Step 03",
+                  title: "Develop",
+                  items: ["Frontend, backend-related work and CMS"],
                 },
                 {
-                  duration: "1 month",
-                  title: "AI Website Generation",
-                  items: ["Frontend refinement, Backend learning & support"],
-                  images: [
-                    {
-                      title: "Signature Market Website",
-                      url: "/reference/slide-8/website-gallery/signature-market-site.png",
-                    },
-                    {
-                      title: "Kenny Hills Bakers Website",
-                      url: "/reference/slide-8/website-gallery/kenny-hills-site.png",
-                    },
-                    {
-                      title: "Kapten Batik Website",
-                      url: "/reference/slide-8/website-gallery/kapten-batik-site.png",
-                    },
-                  ],
+                  duration: "Step 04",
+                  title: "Test & Deliver",
+                  items: ["Responsive checks, functional testing and deployment"],
                 },
               ]}
               sectionNumber="02"
-              title="Project Timeline / 4 Phases"
+              title="Development Workflow"
+            />
+          ),
+        },
+        {
+          id: "tools-and-technologies",
+          label: "Tools & Technologies",
+          theme: "light" as const,
+          render: () => (
+            <PresentationOverviewSlide
+              cards={[
+                { label: "Development", body: "React, Next.js, Payload CMS and responsive web tooling." },
+                { label: "AI Support", body: "Codex, ChatGPT and Shuffle for ideation, troubleshooting and workflow efficiency." },
+                { label: "My Responsibility", body: "Reviewing, adjusting, testing and implementing the final work." },
+              ]}
+              lead="The tools supported my workflow, while I remained responsible for the final implementation and quality."
+              sectionNumber="02"
+              title="Tools & Technologies"
             />
           ),
         },
@@ -286,22 +270,22 @@ function legacyGetSlides(challengeRevealStep: number, adviceRevealStep: number) 
           theme: "light" as const,
           render: () => (
             <PresentationStorySlide
-              lead="A breakthrough that turned repeated trial and error into visible progress."
+              lead="Successfully connecting Payload CMS with the website was the moment the project felt complete."
               sectionNumber="03"
               sections={[
                 {
                   label: "Exciting Moment",
                   body: [
-                    "AI generated what I want",
-                    "After many wrong results and repeated testing, that moment felt truly rewarding.",
+                    "Payload CMS worked with the frontend",
+                    "Content could be organised and managed instead of remaining only in a static interface.",
                   ],
                 },
                 {
                   label: "Why It Mattered",
                   body: [
-                    "It showed my prompting and testing were improving.",
-                    "It proved the effort was paying off.",
-                    "It gave me confidence to keep refining the work.",
+                    "Payload was the most unfamiliar part of the project.",
+                    "Seeing both sides work together confirmed the integration.",
+                    "It strengthened my confidence in learning unfamiliar technology.",
                   ],
                 },
               ]}
@@ -323,28 +307,45 @@ function legacyGetSlides(challengeRevealStep: number, adviceRevealStep: number) 
           render: () => (
             <PresentationStorySlide
               challengeRevealStep={challengeRevealStep}
-              lead="One of the toughest parts of the internship was learning how to choose the right tools and build a workflow that actually worked."
+              lead="The biggest challenge was learning the structure of Payload CMS and connecting it reliably with the website."
               sectionNumber="04"
               sections={[
                 {
                   label: "Biggest Challenge",
                   body: [
-                    "Figuring out the right tools and workflow",
-                    "Some outputs looked promising at first, but did not really work in practice.",
-                    "It was stressful because I had to learn fast and still produce something useful.",
+                    "Payload CMS was new to me.",
+                    "Integration errors were not always easy to identify.",
+                    "I had to understand how the CMS structure connected with the frontend.",
                   ],
                 },
                 {
                   label: "How I Overcame It",
                   body: [
-                    "I tested things step by step and compared the results properly.",
-                    "I started asking questions earlier and improved the workflow each time.",
-                    "That process made me more adaptable, organised, and confident.",
+                    "I broke the implementation into smaller parts.",
+                    "I used documentation, Codex and ChatGPT to support troubleshooting.",
+                    "I reviewed every suggestion and tested each change before continuing.",
                   ],
                 },
               ]}
               title="Biggest Challenge & How I Overcame It"
               variant="challenge"
+            />
+          ),
+        },
+        {
+          id: "problem-solving-method",
+          label: "Problem-Solving Method",
+          theme: "light" as const,
+          render: () => (
+            <PresentationPointsSlide
+              lead="A simple method helped me work through unfamiliar technical problems without accepting generated suggestions blindly."
+              points={[
+                "Break the problem into smaller parts.",
+                "Use documentation and AI tools to understand unfamiliar concepts.",
+                "Review, test and debug each change before moving forward.",
+              ]}
+              sectionNumber="04"
+              title="Problem-Solving Method"
             />
           ),
         },
@@ -355,13 +356,33 @@ function legacyGetSlides(challengeRevealStep: number, adviceRevealStep: number) 
       return [
         openerSlide,
         {
-          id: "product-showcase-runtime",
-          label: "Product Showcase Runtime",
+          id: "product-showcase",
+          label: "Product Showcase",
           theme: "light" as const,
           render: () => (
-            <PresentationVideoSlide
-              title="Product showcase video"
-              videoSrc="/videos/slide-14/outputs.mp4"
+            <PresentationProjectShowcaseSlide
+              projects={[
+                { name: "Centrix", description: "Clearer connectivity, facilities, layouts and registration flow.", image: "/reference/centrix.png" },
+                { name: "Metro Pinjaman Berlesen", description: "Multi-page structure with application, appointment and tracking flows.", image: "/reference/juniorlee.png" },
+                { name: "Boon Chye", description: "One organised site created from separate service websites.", image: "/reference/boonchye.png" },
+              ]}
+              subtitle="Three website projects with different structures, audiences and user journeys."
+              title="Product Showcase"
+            />
+          ),
+        },
+        {
+          id: "product-showcase-more",
+          label: "Product Showcase: More Outputs",
+          theme: "light" as const,
+          render: () => (
+            <PresentationProjectShowcaseSlide
+              projects={[
+                { name: "HealthStrat", description: "A professional multi-page site structured from a detailed requirement document.", image: "/reference/healthstrat.png" },
+                { name: "Ruang Bestari", description: "A cleaner financing journey with benefits, trust, process and contact flow.", image: "/reference/ruangbestari.png" },
+              ]}
+              subtitle="Two further outputs focused on clear structure, trust and practical user journeys."
+              title="Product Showcase: More Outputs"
             />
           ),
         },
@@ -387,48 +408,6 @@ function legacyGetSlides(challengeRevealStep: number, adviceRevealStep: number) 
             />
           ),
         },
-        {
-          id: "human-vs-ai",
-          label: "What Makes Me Different and Unique Compared to AI?",
-          theme: "light" as const,
-          render: () => (
-            <PresentationHumanValueSlide
-              lead="The experience also reminded me that speed alone is not enough. Human value still matters in how work is judged, shaped, and trusted."
-              points={[
-                "AI can generate faster, but I bring judgement and responsibility.",
-                "I can adapt, communicate, and make more careful decisions.",
-                "Human understanding, flexibility, and trust.",
-              ]}
-              sectionNumber="06"
-              title="What Makes Me Different from AI"
-            />
-          ),
-        },
-        {
-          id: "advice-to-future-intern",
-          label: "Advice to My Future Junior Intern",
-          theme: "light" as const,
-          render: () => (
-            <PresentationAdviceSlide
-              lead="If I could leave a short message for a future junior intern, it would be to stay curious, stay thoughtful, and keep learning through the process."
-              points={[
-                "Ask questions early and clarify the task before starting.",
-                "Use AI as a support tool, but always review and improve the output.",
-                "Stay organised, document progress, and learn from feedback.",
-              ]}
-              quote={{
-                label: "Quote",
-                text: [
-                  "Failure is not the opposite of success. It is part of success.",
-                  "Work Smart Not Hard",
-                ],
-              }}
-              quoteReveal={adviceRevealStep > 0}
-              sectionNumber="06"
-              title="Advice to My Future Junior Intern"
-            />
-          ),
-        },
       ]
     }
 
@@ -440,9 +419,23 @@ function legacyGetSlides(challengeRevealStep: number, adviceRevealStep: number) 
           label: "My Internship & My Future",
           theme: "light" as const,
           render: () => (
-            <PresentationVideoSlide
+            <PresentationAdviceSlide
+              lead="The internship introduced me to full-stack and AI-assisted development in a practical working environment."
+              points={[
+                "Continue developing my skills in web development and content management systems.",
+                "Explore practical AI applications while strengthening my own technical judgement.",
+                "Stay confident when learning unfamiliar tools and solving new problems.",
+              ]}
+              quote={{
+                label: "Thank You",
+                text: [
+                  "My internship helped me see that I am capable of learning unfamiliar technologies",
+                  "and turning an idea into a working product.",
+                ],
+              }}
+              quoteReveal={adviceRevealStep > 0}
+              sectionNumber="07"
               title="My Internship & My Future"
-              videoSrc="/videos/slide-20/fp-video.mp4"
             />
           ),
         },
@@ -451,247 +444,12 @@ function legacyGetSlides(challengeRevealStep: number, adviceRevealStep: number) 
 
       return [openerSlide]
     }),
-    {
-      id: "thank-you",
-      label: "Thank You",
-      theme: "dark" as const,
-      render: () => <SectionOpenerSlide sectionNumber="" title="Thank You" />,
-    },
   ].map((slide, index) => ({
     ...slide,
     shortLabel: `Slide ${index + 1}`,
   }))
 }
 
-void legacyGetSlides
-
-function getSlides(_challengeRevealStep: number, _adviceRevealStep: number) {
-  void _challengeRevealStep
-  void _adviceRevealStep
-
-  const contentBySection = [
-    [
-      {
-        id: "why-this-opportunity",
-        label: "Why I Chose This Opportunity",
-        render: () => (
-          <PresentationProjectContent
-            cards={[
-              { label: "Hands-on environment", text: "A smaller team allowed me to participate in different parts of a project." },
-              { label: "Different project stages", text: "I could learn beyond one narrow task and see how the work connected." },
-              { label: "AI-assisted development", text: "My supervisor's AI engineering experience offered practical exposure to AI-supported workflows." },
-              { label: "Real business website", text: "The project was an opportunity to work with practical requirements beyond university assignments." },
-            ]}
-            eyebrow="Section 01"
-            lead="I was looking for practical industry experience in a smaller, more hands-on working environment."
-            title="Why I Chose This Opportunity"
-          />
-        ),
-      },
-      {
-        id: "initial-expectations",
-        label: "My Initial Expectations",
-        render: () => (
-          <PresentationProjectContent
-            cards={[
-              { label: "Web development", text: "Improve my website development skills through practical work." },
-              { label: "Business requirements", text: "Understand how a real business shapes a website project." },
-              { label: "Practical AI", text: "Explore where AI can support ideation, development and troubleshooting." },
-              { label: "Industry experience", text: "Gain experience beyond the structure of university projects." },
-            ]}
-            eyebrow="My expectations before starting"
-            title="My Initial Expectations"
-          />
-        ),
-      },
-    ],
-    [
-      {
-        id: "project-overview-content",
-        label: "Metro Website Redesign",
-        render: () => (
-          <PresentationProjectContent
-            cards={[
-              { label: "Starting point", text: "The original site was functional, but its visual presentation felt outdated." },
-              { label: "Project aim", text: "Improve appearance, usability and content presentation without losing essential business information." },
-              { label: "My role", text: "Design, frontend, backend-related work, CMS, tracking, testing and preview deployment." },
-              { label: "AI support", text: "Codex, ChatGPT and Shuffle supported ideation and workflow efficiency; I reviewed, adjusted and tested the final work." },
-            ]}
-            eyebrow="Main internship project"
-            lead="I redesigned and developed a cleaner, more professional and responsive website for Metro Pinjaman Berlesen."
-            title="Metro Pinjaman Berlesen Website Redesign"
-          />
-        ),
-      },
-      {
-        id: "project-process",
-        label: "Project Scope",
-        render: () => (
-          <PresentationProjectContent
-            cards={[
-              { label: "Review", text: "Reviewed the existing website, content and user journey." },
-              { label: "Redesign", text: "Improved the visual direction, hierarchy, layout and responsiveness." },
-              { label: "Develop", text: "Implemented the frontend and required backend functionality." },
-              { label: "Manage", text: "Integrated Payload CMS for structured content management." },
-              { label: "Track", text: "Implemented and checked website tracking." },
-              { label: "Test and Deploy", text: "Tested screen sizes and functions, then deployed a working preview." },
-            ]}
-            eyebrow="From review to preview"
-            title="Project Scope"
-            variant="process"
-          />
-        ),
-      },
-    ],
-    [
-      {
-        id: "payload-success",
-        label: "Successfully Implementing Payload CMS",
-        render: () => (
-          <PresentationProjectContent
-            cards={[
-              { label: "Why it mattered", text: "Payload was both the most unfamiliar and the most technically difficult part of the project." },
-              { label: "What changed", text: "The website became more than a static interface: content could be organised and managed more effectively." },
-              { label: "The result", text: "Seeing the frontend and CMS work together gave me a genuine sense of achievement." },
-            ]}
-            eyebrow="My most exciting moment"
-            quote="Seeing the website and CMS finally work together was the moment the project felt complete."
-            title="Successfully Implementing Payload CMS"
-            variant="story"
-          />
-        ),
-      },
-    ],
-    [
-      {
-        id: "payload-challenge",
-        label: "Learning and Integrating Payload CMS",
-        render: () => (
-          <PresentationProjectContent
-            cards={[
-              { label: "Problem", text: "Payload CMS was new to me. I had to understand its structure, its connection to the website and integration errors." },
-              { label: "Actions", text: "I broke the work into smaller parts, used documentation and AI support, reviewed suggestions, and tested every change." },
-              { label: "Outcome", text: "I integrated Payload CMS and became more confident in debugging and learning unfamiliar technology independently." },
-            ]}
-            eyebrow="Problem → Actions → Outcome"
-            lead="I used Codex and ChatGPT to support troubleshooting, while remaining responsible for checking and implementing the work."
-            title="Learning and Integrating Payload CMS"
-            variant="story"
-          />
-        ),
-      },
-    ],
-    [
-      {
-        id: "showcase-home",
-        label: "Homepage and User Journey",
-        render: () => (
-          <PresentationProjectContent
-            cards={[
-              { label: "Clearer visual hierarchy", text: "The hero introduces the service and provides direct actions." },
-              { label: "Readable journey", text: "Loan options and the three-step application process are separated into clear sections." },
-              { label: "Accessible contact actions", text: "Apply and WhatsApp links are visible throughout the journey." },
-            ]}
-            eyebrow="Redesigned website — desktop"
-            imageAlt="Full desktop view of the redesigned Metro Pinjaman Berlesen website"
-            imageLabel="Redesigned — desktop"
-            imageSrc="/metro/redesign-desktop.png"
-            title="Homepage and User Journey"
-            variant="showcase"
-          />
-        ),
-      },
-      {
-        id: "showcase-mobile",
-        label: "Responsive Mobile Design",
-        render: () => (
-          <PresentationProjectContent
-            cards={[
-              { label: "Mobile layout", text: "The page reorganises into a single readable flow on a narrow screen." },
-              { label: "Content retained", text: "Loan information, process steps and contact actions remain available." },
-              { label: "Verified preview", text: "This capture was taken from the supplied deployed project preview at 390 × 844." },
-            ]}
-            eyebrow="Redesigned website — mobile"
-            imageAlt="Mobile view of the redesigned Metro Pinjaman Berlesen website"
-            imageLabel="Redesigned — mobile"
-            imageSrc="/metro/redesign-mobile.png"
-            title="Responsive Mobile Design"
-            variant="showcase"
-          />
-        ),
-      },
-      {
-        id: "showcase-cms-tracking",
-        label: "CMS and Tracking Implementation",
-        render: () => (
-          <PresentationProjectContent
-            cards={[
-              { label: "Payload CMS", text: "Implemented to support structured content management and connect managed content with the frontend." },
-              { label: "Website tracking", text: "Implemented and checked to support measurement of website interactions." },
-              { label: "Screenshot status", text: "No suitable Payload admin or tracking screenshot was available in the presentation repository." },
-            ]}
-            eyebrow="Behind the interface"
-            lead="These parts were important to making the website manageable and measurable, not only visually improved."
-            title="CMS and Tracking Implementation"
-          />
-        ),
-      },
-    ],
-    [
-      {
-        id: "conclusion",
-        label: "Conclusion",
-        render: () => (
-          <PresentationProjectContent
-            cards={[
-              { label: "Complete workflow", text: "I worked across design, frontend, backend-related work, CMS, tracking, testing and deployment." },
-              { label: "A wider view", text: "A website must be attractive, functional, manageable, measurable and suitable for its users." },
-              { label: "What improved", text: "The project strengthened my technical confidence, debugging habits and problem-solving ability." },
-            ]}
-            eyebrow="What I learnt"
-            quote="This project taught me how the different parts of a website work together to support both the business and its users."
-            title="Conclusion"
-            variant="story"
-          />
-        ),
-      },
-    ],
-    [
-      {
-        id: "future",
-        label: "My Internship & My Future",
-        render: () => (
-          <PresentationProjectContent
-            cards={[
-              { label: "Full-stack exposure", text: "The internship introduced me to full-stack and AI-assisted development in a practical setting." },
-              { label: "Learning unfamiliar tools", text: "I became more confident in exploring new technology and working through uncertainty." },
-              { label: "Next direction", text: "I want to continue developing in web development, content management systems and practical AI applications." },
-              { label: "My responsibility", text: "I will use AI as a supporting tool while strengthening my own technical judgement." },
-            ]}
-            eyebrow="Moving forward"
-            quote="My internship helped me see that I am capable of learning unfamiliar technologies and turning an idea into a working product."
-            title="My Internship & My Future"
-          />
-        ),
-      },
-    ],
-  ]
-
-  return [
-    ...BASE_SLIDES,
-    ...SECTION_TITLES.flatMap((title, index) => {
-      const sectionNumber = String(index + 1).padStart(2, "0")
-      const opener = {
-        id: `section-opener-${sectionNumber}`,
-        label: title,
-        theme: "dark" as const,
-        render: () => <SectionOpenerSlide sectionNumber={sectionNumber} title={title} />,
-      }
-      return [opener, ...contentBySection[index].map((slide) => ({ ...slide, theme: "light" as const }))]
-    }),
-    { id: "thank-you", label: "Thank You", theme: "dark" as const, render: () => <SectionOpenerSlide sectionNumber="" title="Thank You" /> },
-  ].map((slide, index) => ({ ...slide, shortLabel: `Slide ${index + 1}` }))
-}
 
 export function PresentationDeck() {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -1044,6 +802,12 @@ export function PresentationDeck() {
   })
 
   const handleDeckKeyDown = useEffectEvent((event: KeyboardEvent) => {
+    if (event.key === "Escape" && document.fullscreenElement) {
+      event.preventDefault()
+      void document.exitFullscreen()
+      return
+    }
+
     if (event.key === "Escape" && showPhasesInterstitial) {
       event.preventDefault()
       setShowPhasesInterstitial(false)
@@ -1057,9 +821,35 @@ export function PresentationDeck() {
       return
     }
 
-    if (event.key === "ArrowRight" || event.key === "PageDown") {
+    if (
+      event.key === "ArrowRight" ||
+      event.key === "PageDown" ||
+      event.code === "Space"
+    ) {
       event.preventDefault()
       handleKeyboardNavigation(1)
+      return
+    }
+
+    if (event.key === "Home") {
+      event.preventDefault()
+      goToSlide(0)
+      return
+    }
+
+    if (event.key === "End") {
+      event.preventDefault()
+      goToSlide(slides.length - 1)
+      return
+    }
+
+    if (event.key.toLowerCase() === "f") {
+      event.preventDefault()
+      if (document.fullscreenElement) {
+        void document.exitFullscreen()
+      } else {
+        void document.documentElement.requestFullscreen()
+      }
     }
   })
 

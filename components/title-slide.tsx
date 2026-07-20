@@ -1,5 +1,7 @@
 "use client"
 
+// Layout locked: preserve structure and positioning. Content changes only.
+
 import Image from "next/image"
 import type { CSSProperties } from "react"
 import { useLayoutEffect, useRef, useState } from "react"
@@ -59,7 +61,7 @@ export function TitleSlide() {
     }
   }, [])
 
-  const isResponsiveViewport = viewportWidth > 0 && viewportWidth < 1024
+  const isResponsiveViewport = false
 
   return (
     <main className="presentation-shell">
@@ -106,15 +108,15 @@ export function TitleSlide() {
                     <div>
                       <CalendarDays aria-hidden="true" />
                       <p>
-                        16 March
-                        <span>20 July 2026</span>
+                        16 March 2026
+                        <span>– 20 July 2026</span>
                       </p>
                     </div>
                     <div>
                       <UserRound aria-hidden="true" />
                       <p>
-                        Nur Arina
-                        <span>Qistinah</span>
+                        Presented by
+                        <span>Nur Arina Qistinah</span>
                       </p>
                     </div>
                     <div>
@@ -186,16 +188,16 @@ export function TitleSlide() {
                         <div className="title-slide__meta-item">
                           <CalendarDays aria-hidden="true" />
                           <p>
-                            16 March
-                            <span>20 July 2026</span>
+                            16 March 2026
+                            <span>– 20 July 2026</span>
                           </p>
                         </div>
                         <div className="title-slide__meta-divider" />
                         <div className="title-slide__meta-item">
                           <UserRound aria-hidden="true" />
                           <p>
-                            Nur Arina
-                            <span>Qistinah</span>
+                            Presented by
+                            <span>Nur Arina Qistinah</span>
                           </p>
                         </div>
                         <div className="title-slide__meta-divider" />

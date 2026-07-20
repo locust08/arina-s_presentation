@@ -1,6 +1,8 @@
 /* eslint-disable react-hooks/immutability */
 "use client"
 
+// Layout locked: preserve structure and positioning. Content changes only.
+
 import Image from "next/image"
 import type { CSSProperties, MouseEvent, TouchEvent } from "react"
 import { useEffect, useRef, useState } from "react"

@@ -49,7 +49,7 @@ export function useSlideScale(designWidth: number, designHeight: number) {
   }, [designHeight, designWidth])
 
   return {
-    isResponsiveViewport: viewportWidth > 0 && viewportWidth < 1024,
+    isResponsiveViewport: false,
     scale,
     viewportHeight,
     viewportWidth,
